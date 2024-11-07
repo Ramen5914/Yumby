@@ -1,5 +1,7 @@
 package net.ramen5914.yumby.block;
 
+import java.util.function.Supplier;
+
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
@@ -15,8 +17,6 @@ import net.ramen5914.yumby.Yumby;
 import net.ramen5914.yumby.block.custom.BowlBlock;
 import net.ramen5914.yumby.block.custom.PotBlock;
 import net.ramen5914.yumby.item.ModItems;
-
-import java.util.function.Supplier;
 
 public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(Yumby.MOD_ID);
@@ -39,8 +39,6 @@ public class ModBlocks {
             () -> new BowlBlock(BlockBehaviour.Properties.of()
                     .setId(BOWL_BLOCK)
                     .noOcclusion()));
-
-
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, ResourceKey<Item> itemResourceKey, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);
