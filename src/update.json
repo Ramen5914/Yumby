@@ -1,0 +1,11 @@
+{
+  "homepage": "https://modrinth.com/mod/yumby",
+  "1.21.3": {
+    "0.0.1-alpha": "Initial setup of mod."
+  },
+  "promos": {
+    "1.21.3-latest": "0.0.1-alpha",
+    "1.21.3-recommended": "0.0.1-alpha"
+  },
+  "versions": "1.21.3"
+}
