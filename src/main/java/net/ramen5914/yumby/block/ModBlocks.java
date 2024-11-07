@@ -42,14 +42,20 @@ public class ModBlocks {
 
 
 
+    private static <T extends Block> DeferredBlock<T> registerBlock(String name, ResourceKey<Item> itemResourceKey, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);
-        registerBlockItem(name, toReturn);
+        registerBlockItem(name, toReturn, itemResourceKey);
 
         return toReturn;
     }
 
-    private static <T extends Block> void registerBlockItem(String name, DeferredBlock<T> block) {
-        ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
+    private static <T extends Block> void registerBlockItem(String name, DeferredBlock<T> block, ResourceKey<Item> resourceKey) {
+        ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()
+                .setId(resourceKey)));
+    }
+
+    private static <T> ResourceKey<T> createKey(ResourceKey<? extends Registry<T>> resourceKey, String id) {
+        return ResourceKey.create(resourceKey, ResourceLocation.fromNamespaceAndPath(Yumby.MOD_ID, id));
     }
 
     public static void register(IEventBus eventBus) {
