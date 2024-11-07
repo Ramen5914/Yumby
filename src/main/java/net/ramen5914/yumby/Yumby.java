@@ -1,7 +1,6 @@
 package net.ramen5914.yumby;
 
 import com.mojang.logging.LogUtils;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
