@@ -28,8 +28,8 @@ public class Yumby {
 
         ModCreativeModeTabs.register(modEventBus);
 
-        ModBlocks.register(modEventBus);
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         NeoForge.EVENT_BUS.register(this);
 
