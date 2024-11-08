@@ -30,6 +30,9 @@ repo
 # data generation
 src/generated/resources/.cache
 
+# duplicated resources
+src/main/resources/assets/minecraft
+
 # MacOS
 .DS_Store
 uploadScripting/.env
