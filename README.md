@@ -12,7 +12,7 @@
 
 ## Cutting Board
 - slice ingredients (meat, veggies)
-- can dice as well for sligjtly different results
+- can dice as well for slightly different results
 
 ## Oven
 - Baking/roasting
