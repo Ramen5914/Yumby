@@ -15,11 +15,12 @@
 - can dice as well for sligjtly different results
 
 ## Oven
-- Baking
+- Baking/roasting
 
 ## Rotiserrie Spit
 - For use on campfires or over lava
 - Mostly with meats
+- manually spin it. when over lava cooks faster but needs constant attention
 
 ## Mortar and Pestle
 - Grinding spices
