@@ -9,10 +9,17 @@
 - more stuff
 - shakey shakey (:
 - used for saute and drier dishes, like omelettes
-1. Numbered things
-2. 2nd
 
 ## Cutting Board
 - slice ingredients (meat, veggies)
 - can dice as well for sligjtly different results
-  - :D
+
+## Oven
+- Baking
+
+## Rotiserrie Spit
+- For use on campfires or over lava
+- Mostly with meats
+
+## Mortar and Pestle
+- Grinding spices
