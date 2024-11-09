@@ -21,6 +21,7 @@ public class ModCreativeModeTabs {
                     .displayItems((parameters, output) -> {
                         output.accept(ModBlocks.BOWL);
                         output.accept(ModBlocks.POT);
+                        output.accept(ModBlocks.PAN);
                     }).build());
 
     public static void register(IEventBus eventBus) {

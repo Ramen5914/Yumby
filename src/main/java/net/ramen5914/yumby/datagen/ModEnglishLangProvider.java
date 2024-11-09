@@ -14,6 +14,7 @@ public class ModEnglishLangProvider extends LanguageProvider {
     protected void addTranslations() {
         addBlock(ModBlocks.POT, "Pot");
         addBlock(ModBlocks.BOWL, "Bowl");
+        addBlock(ModBlocks.PAN, "Pan");
 
         add(String.format("itemgroup.%s.yumby_tab", Yumby.MOD_ID), "Yumby");
     }

@@ -1,7 +1,5 @@
 package net.ramen5914.yumby.block;
 
-import java.util.function.Supplier;
-
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
@@ -15,8 +13,11 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.ramen5914.yumby.Yumby;
 import net.ramen5914.yumby.block.custom.BowlBlock;
+import net.ramen5914.yumby.block.custom.PanBlock;
 import net.ramen5914.yumby.block.custom.PotBlock;
 import net.ramen5914.yumby.item.ModItems;
+
+import java.util.function.Supplier;
 
 public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(Yumby.MOD_ID);
@@ -27,17 +28,25 @@ public class ModBlocks {
     private static final ResourceKey<Block> BOWL_BLOCK = createKey(Registries.BLOCK, "bowl");
     private static final ResourceKey<Item> BOWL_ITEM = createKey(Registries.ITEM, "bowl");
 
+    private static final ResourceKey<Block> PAN_BLOCK = createKey(Registries.BLOCK, "pan");
+    private static final ResourceKey<Item> PAN_ITEM = createKey(Registries.ITEM, "pan");
+
     public static DeferredBlock<Block> POT = registerBlock("pot",
             POT_ITEM,
             () -> new PotBlock(BlockBehaviour.Properties.of()
                     .setId(POT_BLOCK)
-                    .noOcclusion()
-                    .requiresCorrectToolForDrops()));
+                    .noOcclusion()));
 
     public static DeferredBlock<Block> BOWL = registerBlock("bowl",
             BOWL_ITEM,
             () -> new BowlBlock(BlockBehaviour.Properties.of()
                     .setId(BOWL_BLOCK)
+                    .noOcclusion()));
+
+    public static DeferredBlock<Block> PAN = registerBlock("pan",
+            PAN_ITEM,
+            () -> new PanBlock(BlockBehaviour.Properties.of()
+                    .setId(PAN_BLOCK)
                     .noOcclusion()));
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, ResourceKey<Item> itemResourceKey, Supplier<T> block) {
