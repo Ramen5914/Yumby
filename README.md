@@ -15,7 +15,7 @@
 
 ### Skillet
 - frying, sautéing, and searing
-
+*potentially redundant, considering pan*
 ### Saucepan
 - Smaller pots with long handles
 - sauces, soups, and side dishes
@@ -31,7 +31,7 @@
 ### Baking Sheet
 - Flat metal sheets
 - baking cookies, roasting vegetables, baking pizza, etc.
-
+*we could probably get away with abstracting this part out of the experience*
 ### Baking Pan
 - Various sizes and shapes
 - cakes, breads, casseroles, ect.
@@ -53,8 +53,11 @@
 
 ### Freezer
 - Freeze items for long term storage
-
+**I think freezer and refrigerator coukd be merged into a simple ice chest that slows spiikage based on the amount of ice in it.**
 ## Utensils
+
+**I think most of these are unnecessary, though im not sure what to replace their functions with. potentially a simple "kitchen workstation" where you can prep ingredients, stir them, stuff like that. we can probably have stirring and flipping intrinsic to the pots and stuff**
+
 ### Cutting Board
 - slice ingredients (meat, veggies)
 - can dice as well for slightly different results
@@ -72,6 +75,9 @@
 - Blending, whipping
 
 ### Knives
+
+**most of these are redundant in mt opinion, and the player only has so many hotbar slots. i think a general use slicing, chopping, and dicing knife is good. then potentially a butchering knife? hmm**
+
 #### Chef's Knife
 - The workhorse of the kitchen, usually 8 to 10 inches long, used for chopping, slicing, dicing, and mincing almost anything, from vegetables to meat. 
 #### Paring Knife
