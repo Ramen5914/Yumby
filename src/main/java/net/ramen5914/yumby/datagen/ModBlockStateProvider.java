@@ -17,7 +17,10 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlockWithItem(ModBlocks.POT.get(),
                 new ModelFile.UncheckedModelFile(modLoc("block/pot")));
 
-        simpleBlockWithItem(ModBlocks.PAN.get(),
-                new ModelFile.UncheckedModelFile(modLoc("block/pan")));
+//        simpleBlockWithItem(ModBlocks.PAN.get(),
+//                new ModelFile.UncheckedModelFile(modLoc("block/pan")));
+
+        horizontalBlock(ModBlocks.PAN.get(),
+                 new ModelFile.UncheckedModelFile(modLoc("block/pan")));
     }
 }
