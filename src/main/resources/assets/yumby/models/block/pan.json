@@ -10,7 +10,7 @@
 			"name": "Base",
 			"from": [1.75, 0, 4.75],
 			"to": [8.25, 1, 11.25],
-			"rotation": {"angle": 0, "axis": "y", "origin": [6.75, 1, 8]},
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 1, 8]},
 			"faces": {
 				"north": {"uv": [3.5, 4, 7, 3.5], "texture": "#1"},
 				"east": {"uv": [0, 3.5, 3.5, 4], "texture": "#1"},
@@ -80,7 +80,7 @@
 			"name": "Handle",
 			"from": [9.25, 1, 7],
 			"to": [15.25, 2, 9],
-			"rotation": {"angle": 0, "axis": "y", "origin": [6.75, 1, 7.75]},
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
 			"faces": {
 				"north": {"uv": [1, 11, 4, 11.5], "texture": "#1"},
 				"east": {"uv": [0, 11, 1, 11.5], "texture": "#1"},
@@ -90,5 +90,15 @@
 				"down": {"uv": [4, 11.5, 1, 12.5], "texture": "#1"}
 			}
 		}
-	]
+	],
+	"display": {
+		"ground": {
+			"translation": [0, 3, 0],
+			"scale": [0.75, 0.75, 0.75]
+		},
+		"gui": {
+			"rotation": [30, -45, 0],
+			"translation": [0.5, 5, 0]
+		}
+	}
 }
