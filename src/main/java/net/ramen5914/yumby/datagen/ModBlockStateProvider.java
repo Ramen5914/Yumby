@@ -16,5 +16,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
     protected void registerStatesAndModels() {
         simpleBlockWithItem(ModBlocks.POT.get(),
                 new ModelFile.UncheckedModelFile(modLoc("block/pot")));
+
+        simpleBlockWithItem(ModBlocks.PAN.get(),
+                new ModelFile.UncheckedModelFile(modLoc("block/pan")));
     }
 }
