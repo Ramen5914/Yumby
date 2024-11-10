@@ -54,6 +54,37 @@ public class PanBlock extends BaseEntityBlock {
 
     @Override
     protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
-        return Block.box(0.75d, 0, 3.75d, 15.25d, 2d, 12.25d);
+        Direction direction = state.getValue(FACING);
+        return switch (direction) {
+            case EAST -> EAST_PAN;
+            case SOUTH -> SOUTH_PAN;
+            case WEST -> WEST_PAN;
+            default -> NORTH_PAN;
+        };
+    }
+
+    @Override
+    public @Nullable BlockState getStateForPlacement(BlockPlaceContext context) {
+        return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection());
+    }
+
+    @Override
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+        builder.add(FACING);
+    }
+
+    @Override
+    protected RenderShape getRenderShape(BlockState state) {
+        return RenderShape.MODEL;
+    }
+
+    @Override
+    public MapCodec<PanBlock> codec() {
+        return CODEC;
+    }
+
+    @Override
+    public @Nullable BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
+        return null;
     }
 }
