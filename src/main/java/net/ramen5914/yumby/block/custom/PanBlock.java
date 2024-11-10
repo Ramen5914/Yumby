@@ -2,11 +2,24 @@ package net.ramen5914.yumby.block.custom;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.AttachFace;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
+import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.Nullable;
+
+public class PanBlock extends BaseEntityBlock {
     public static final MapCodec<PanBlock> CODEC = simpleCodec(PanBlock::new);
     public static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
 
@@ -25,7 +38,6 @@ import net.minecraft.world.phys.shapes.VoxelShape;
     private static final VoxelShape SOUTH_PAN = Shapes.or(SOUTH_DISH, SOUTH_HANDLE);
     private static final VoxelShape WEST_PAN = Shapes.or(WEST_DISH, WEST_HANDLE);
 
-public class PanBlock extends Block {
     public PanBlock(Properties properties) {
         super(properties);
     }
