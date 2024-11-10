@@ -8,6 +8,7 @@ import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.ramen5914.yumby.Yumby;
+import net.ramen5914.yumby.block.ModBlocks;
 
 public class ModItemModelProvider extends ItemModelProvider {
     public ModItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
@@ -16,7 +17,8 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-
+        complexBlock(ModBlocks.PAN.get());
+        complexBlock(ModBlocks.POT.get());
     }
 
     private ItemModelBuilder complexBlock(Block block) {
