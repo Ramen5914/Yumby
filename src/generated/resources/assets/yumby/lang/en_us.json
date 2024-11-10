@@ -2,5 +2,8 @@
   "block.yumby.bowl": "Bowl",
   "block.yumby.pan": "Pan",
   "block.yumby.pot": "Pot",
+  "item.yumby.bowl": "Bowl",
+  "item.yumby.pan": "Pan",
+  "item.yumby.pot": "Pot",
   "itemgroup.yumby.yumby_tab": "Yumby"
 }
