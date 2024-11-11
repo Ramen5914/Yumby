@@ -100,3 +100,14 @@
 - A Japanese vegetable knife with a rectangular blade designed specifically for chopping vegetables, as its flat blade makes it easy to slice all the way through to the cutting board.
 #### Peeling/Tourne Knife
 - A small knife with a curved blade, perfect for peeling round fruits and vegetables or making intricate cuts for garnishes.
+
+## Ingredience
+# Meat
+
+# vegetable
+
+# fluid
+
+# spice/seasoning
+
+# Miscellaneous
