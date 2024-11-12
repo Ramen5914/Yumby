@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "yumby:bowl"
+          "name": "yumby:spruce_bowl"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "yumby:blocks/bowl"
+  "random_sequence": "yumby:blocks/spruce_bowl"
 }
