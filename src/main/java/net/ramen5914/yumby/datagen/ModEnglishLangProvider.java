@@ -27,6 +27,7 @@ public class ModEnglishLangProvider extends LanguageProvider {
         addBlockAndItem(ModBlocks.CHERRY_BOWL, "Cherry Bowl");
         addBlockAndItem(ModBlocks.CRIMSON_BOWL, "Crimson Bowl");
         addBlockAndItem(ModBlocks.WARPED_BOWL, "Warped Bowl");
+        addBlockAndItem(ModBlocks.BAMBOO_BOWL, "Bamboo Bowl");
 
         add(String.format("itemgroup.%s.yumby_tab", Yumby.MOD_ID), "Yumby");
     }

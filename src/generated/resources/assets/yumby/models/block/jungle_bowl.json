@@ -1,6 +1,6 @@
 {
   "parent": "yumby:block/bowl",
   "textures": {
-    "material": "minecraft:block/jungle_log"
+    "material": "minecraft:block/jungle_planks"
   }
 }

@@ -48,6 +48,8 @@ public class ModBlocks {
     private static final ResourceKey<Item> CRIMSON_BOWL_ITEM = createKey(Registries.ITEM, "crimson_bowl");
     private static final ResourceKey<Block> WARPED_BOWL_BLOCK = createKey(Registries.BLOCK, "warped_bowl");
     private static final ResourceKey<Item> WARPED_BOWL_ITEM = createKey(Registries.ITEM, "warped_bowl");
+    private static final ResourceKey<Block> BAMBOO_BOWL_BLOCK = createKey(Registries.BLOCK, "bamboo_bowl");
+    private static final ResourceKey<Item> BAMBOO_BOWL_ITEM = createKey(Registries.ITEM, "bamboo_bowl");
 
     public static DeferredBlock<Block> POT = registerBlock("pot",
             POT_ITEM,
@@ -119,6 +121,12 @@ public class ModBlocks {
             WARPED_BOWL_ITEM,
             () -> new BowlBlock(BlockBehaviour.Properties.of()
                     .setId(WARPED_BOWL_BLOCK)
+                    .noOcclusion()));
+
+    public static DeferredBlock<Block> BAMBOO_BOWL = registerBlock("bamboo_bowl",
+            BAMBOO_BOWL_ITEM,
+            () -> new BowlBlock(BlockBehaviour.Properties.of()
+                    .setId(BAMBOO_BOWL_BLOCK)
                     .noOcclusion()));
 
     private static <T> ResourceKey<T> createKey(ResourceKey<? extends Registry<T>> resourceKey, String id) {

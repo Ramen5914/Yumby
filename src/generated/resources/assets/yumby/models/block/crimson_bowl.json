@@ -1,6 +1,6 @@
 {
   "parent": "yumby:block/bowl",
   "textures": {
-    "material": "minecraft:block/crimson_stem"
+    "material": "minecraft:block/crimson_planks"
   }
 }

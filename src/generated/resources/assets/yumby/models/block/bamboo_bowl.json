@@ -1,6 +1,6 @@
 {
   "parent": "yumby:block/bowl",
   "textures": {
-    "material": "minecraft:block/acacia_planks"
+    "material": "minecraft:block/bamboo_planks"
   }
 }

@@ -49,5 +49,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         simpleBlockWithItem(ModBlocks.WARPED_BOWL.get(),
                 new ModelFile.UncheckedModelFile(modLoc("block/warped_bowl")));
+
+        simpleBlockWithItem(ModBlocks.BAMBOO_BOWL.get(),
+                new ModelFile.UncheckedModelFile(modLoc("block/bamboo_bowl")));
     }
 }

@@ -22,22 +22,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         super(lookupProvider, recipeOutput);
     }
 
-    public static final class Runner extends RecipeProvider.Runner {
-        public Runner(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
-            super(output, lookupProvider);
-        }
-
-        @Override
-        protected RecipeProvider createRecipeProvider(HolderLookup.Provider lookupProvider, RecipeOutput output) {
-            return new ModRecipeProvider(lookupProvider, output);
-        }
-
-        @Override
-        public String getName() {
-            return Yumby.MOD_ID + " Recipes";
-        }
-    }
-
     @Override
     protected void buildRecipes() {
         shaped(RecipeCategory.DECORATIONS, ModBlocks.POT)
@@ -90,6 +74,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_warped_slab", has(Blocks.WARPED_SLAB))
                 .save(this.output);
 
+        bowl(ModBlocks.BAMBOO_BOWL, Blocks.BAMBOO_SLAB)
+                .unlockedBy("has_stripped_bamboo_block", has(Blocks.BAMBOO_SLAB))
+                .save(this.output);
     }
 
     private ShapedRecipeBuilder bowl(ItemLike output, ItemLike input) {
@@ -97,5 +84,21 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("M M")
                 .pattern("MMM")
                 .define('M', input);
+    }
+
+    public static final class Runner extends RecipeProvider.Runner {
+        public Runner(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
+            super(output, lookupProvider);
+        }
+
+        @Override
+        protected RecipeProvider createRecipeProvider(HolderLookup.Provider lookupProvider, RecipeOutput output) {
+            return new ModRecipeProvider(lookupProvider, output);
+        }
+
+        @Override
+        public String getName() {
+            return Yumby.MOD_ID + " Recipes";
+        }
     }
 }

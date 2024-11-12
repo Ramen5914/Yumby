@@ -29,6 +29,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.CHERRY_BOWL.get());
         dropSelf(ModBlocks.CRIMSON_BOWL.get());
         dropSelf(ModBlocks.WARPED_BOWL.get());
+        dropSelf(ModBlocks.BAMBOO_BOWL.get());
     }
 
     @Override
