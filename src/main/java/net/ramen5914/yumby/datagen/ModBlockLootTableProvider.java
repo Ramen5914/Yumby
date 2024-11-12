@@ -17,8 +17,18 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
     @Override
     protected void generate() {
         dropSelf(ModBlocks.POT.get());
-        dropSelf(ModBlocks.BOWL.get());
         dropSelf(ModBlocks.PAN.get());
+
+        dropSelf(ModBlocks.OAK_BOWL.get());
+        dropSelf(ModBlocks.SPRUCE_BOWL.get());
+        dropSelf(ModBlocks.BIRCH_BOWL.get());
+        dropSelf(ModBlocks.JUNGLE_BOWL.get());
+        dropSelf(ModBlocks.ACACIA_BOWL.get());
+        dropSelf(ModBlocks.DARK_OAK_BOWL.get());
+        dropSelf(ModBlocks.MANGROVE_BOWL.get());
+        dropSelf(ModBlocks.CHERRY_BOWL.get());
+        dropSelf(ModBlocks.CRIMSON_BOWL.get());
+        dropSelf(ModBlocks.WARPED_BOWL.get());
     }
 
     @Override
