@@ -101,13 +101,14 @@
 #### Peeling/Tourne Knife
 - A small knife with a curved blade, perfect for peeling round fruits and vegetables or making intricate cuts for garnishes.
 
-## Ingredience
-# Meat
+### Ingredients
+#### Meats
 
-# vegetable
+#### Vegetables
 
-# fluid
+#### Fluids
 
-# spice/seasoning
+#### Spices / Seasonings
 
-# Miscellaneous
+#### Miscellaneous
+
