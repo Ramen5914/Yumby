@@ -103,12 +103,58 @@
 
 ## Ingredients
 ### Meats
-
-### Vegetables
-
+#### Preexisting
+- Beef
+- Lamb
+- Pork
+- Various fish
+#### Additional
+- Squid (exists but doesn't drop meat)
+- Lobster & Crab could be cool
+- Shrimp/Prawns?
+### Vegetables / Plants
+#### Preexisting
+- Wheat
+- Cocoa
+- Carrots
+- Beets
+- Potato
+- Bamboo Shoots
+#### Additional
+- Tomato
+- Onion
+- Garlic
+- Pepper (Different types maybe?)
+- Seaweed (for sushi maybe)
+- Lettuce
+- Leaves? (Spinach, arugula, etc.)
+- Corn
+- Add new fruits!!
+- Rice
+- Nuts
 ### Fluids
-
+#### Preexisting
+- Milk
+- Water (obviously)
+#### Additional
+- Juices?
+- Broths
+  - Made with animal bones and water in a pot
+- Oils
+  - Sesame
+  - Olive
+- Vinegars
 ### Spices / Seasonings
-
+- Pepper
+- Salt
+- Turmeric
+- Cinnamon
 ### Miscellaneous
-
+#### Preexisting
+- Eggs
+- Sugar
+#### Additional
+- Cheese
+- Butter
+- Pastas
+  - Dough as well
