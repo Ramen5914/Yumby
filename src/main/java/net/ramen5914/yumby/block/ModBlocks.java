@@ -25,10 +25,14 @@ public class ModBlocks {
     public static DeferredBlock<Block> POT = registerBlock("pot",
             (properties) -> new PotBlock(properties
                     .noOcclusion()),
+            new Item.Properties()
+                    .stacksTo(1));
 
     public static DeferredBlock<Block> PAN = registerBlock("pan",
             (properties) -> new PanBlock(properties
                     .noOcclusion()),
+            new Item.Properties()
+                    .stacksTo(1));
 
     public static DeferredBlock<Block> OAK_BOWL = registerBlock("oak_bowl",
             (properties) -> new BowlBlock(properties
