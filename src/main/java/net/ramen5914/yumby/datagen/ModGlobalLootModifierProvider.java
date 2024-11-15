@@ -22,9 +22,8 @@ public class ModGlobalLootModifierProvider extends GlobalLootModifierProvider {
 
     @Override
     protected void start() {
-//        add("cow_bone_from_cow", new AddTableLootModifier(new LootItemCondition[]{
-//                LootItemKilledByPlayerCondition.killedByPlayer().build(),
-//                LootItemEntityPropertyCondition.
-//        }, ModItems.CHEFS_KNIFE_KEY.get()));
+        add("cow_bone_from_cow", new AddTableLootModifier(new LootItemCondition[] {
+                LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, new EntityPredicate.Builder().of(registries.lookupOrThrow(Registries.ENTITY_TYPE), EntityType.COW)).build()
+        }, ));
     }
 }
