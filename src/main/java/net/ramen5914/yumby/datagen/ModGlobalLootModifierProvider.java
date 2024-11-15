@@ -16,8 +16,8 @@ import net.ramen5914.yumby.Yumby;
 import java.util.concurrent.CompletableFuture;
 
 public class ModGlobalLootModifierProvider extends GlobalLootModifierProvider {
-    public ModGlobalLootModifierProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
-        super(output, registries, Yumby.MOD_ID);
+    public ModGlobalLootModifierProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
+        super(output, lookupProvider, Yumby.MOD_ID);
     }
 
     @Override
