@@ -11,6 +11,8 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.ramen5914.yumby.Yumby;
 import net.ramen5914.yumby.item.custom.KnifeItem;
 
+import java.util.function.Function;
+
 public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Yumby.MOD_ID);
 
@@ -81,8 +83,17 @@ public class ModItems {
                     .setId(PEELING_KNIFE_KEY)
                     .stacksTo(1)));
 
+    public static final DeferredItem<Item> COW_BONE = registerItem("cow_bone",
+            Item::new);
+
     private static ResourceKey<Item> createKey(ResourceKey<? extends Registry<Item>> resourceKey, String id) {
         return ResourceKey.create(resourceKey, ResourceLocation.fromNamespaceAndPath(Yumby.MOD_ID, id));
+    }
+
+    private static <U extends Item> DeferredItem<Item> registerItem(String name, Function<Item.Properties, U> properties) {
+        Item.Properties itemProperties = new Item.Properties().setId(ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(Yumby.MOD_ID, name)));
+
+        return ITEMS.register(name, () -> properties.apply(itemProperties));
     }
 
     public static void register(IEventBus eventBus) {
