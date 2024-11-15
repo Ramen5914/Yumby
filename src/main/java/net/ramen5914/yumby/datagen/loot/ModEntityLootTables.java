@@ -29,5 +29,12 @@ public class ModEntityLootTables extends EntityLootSubProvider {
 
     @Override
     public void generate(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> output) {
+        output.accept(ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(Yumby.MOD_ID, "drops/cow_bone")),
+                LootTable.lootTable()
+                        .withPool(LootPool.lootPool()
+                                .setRolls(UniformGenerator.between(0, 2))
+                                .add(LootItem.lootTableItem(ModItems.COW_BONE)
+                                        .when(LootItemKilledByPlayerCondition.killedByPlayer())
+                                        .when(LootItemRandomChanceWithEnchantedBonusCondition.randomChanceAndLootingBoost(this.registries, 0.35f, 0.075f)))));
     }
 }
