@@ -1,4 +1,4 @@
-package net.ramen5914.yumby.datagen;
+package net.ramen5914.yumby.datagen.loot;
 
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
@@ -9,8 +9,8 @@ import net.ramen5914.yumby.block.ModBlocks;
 
 import java.util.Set;
 
-public class ModBlockLootTableProvider extends BlockLootSubProvider {
-    protected ModBlockLootTableProvider(HolderLookup.Provider provider) {
+public class ModBlockLootTables extends BlockLootSubProvider {
+    public ModBlockLootTables(HolderLookup.Provider provider) {
         super(Set.of(), FeatureFlags.REGISTRY.allFlags(), provider);
     }
 
