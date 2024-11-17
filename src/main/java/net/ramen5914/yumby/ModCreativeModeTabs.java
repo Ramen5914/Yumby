@@ -7,7 +7,7 @@ import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.ramen5914.yumby.block.ModBlocks;
-import org.apache.commons.codec.digest.Md5Crypt;
+import net.ramen5914.yumby.item.ModItems;
 
 import java.util.function.Supplier;
 
@@ -33,6 +33,9 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.CRIMSON_BOWL);
                         output.accept(ModBlocks.WARPED_BOWL);
                         output.accept(ModBlocks.BAMBOO_BOWL);
+                        output.accept(ModItems.BEEF_BONE);
+                        output.accept(ModItems.CHICKEN_BONE);
+                        output.accept(ModItems.PORK_BONE);
                     }).build());
 
     public static void register(IEventBus eventBus) {
