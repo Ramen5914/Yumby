@@ -60,8 +60,11 @@ public class ModItems {
             (properties) -> new KnifeItem(properties
                     .stacksTo(1)));
 
-    public static final DeferredItem<Item> COW_BONE = registerItem("cow_bone",
-            Item::new);
+    public static final DeferredItem<Item> BEEF_BONE = registerItem("beef_bone", Item::new);
+
+    public static final DeferredItem<Item> CHICKEN_BONE = registerItem("chicken_bone", Item::new);
+
+    public static final DeferredItem<Item> PORK_BONE = registerItem("pork_bone", Item::new);
 
     private static ResourceKey<Item> createKey(ResourceKey<? extends Registry<Item>> resourceKey, String id) {
         return ResourceKey.create(resourceKey, ResourceLocation.fromNamespaceAndPath(Yumby.MOD_ID, id));
