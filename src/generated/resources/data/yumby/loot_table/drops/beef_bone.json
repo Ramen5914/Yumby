@@ -21,7 +21,7 @@
               "unenchanted_chance": 0.35
             }
           ],
-          "name": "yumby:cow_bone"
+          "name": "yumby:beef_bone"
         }
       ],
       "rolls": {
@@ -31,5 +31,5 @@
       }
     }
   ],
-  "random_sequence": "yumby:drops/cow_bone"
+  "random_sequence": "yumby:drops/beef_bone"
 }
