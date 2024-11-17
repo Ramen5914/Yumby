@@ -4,8 +4,6 @@ import net.minecraft.advancements.critereon.EntityPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
@@ -13,6 +11,7 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyC
 import net.neoforged.neoforge.common.data.GlobalLootModifierProvider;
 import net.neoforged.neoforge.common.loot.AddTableLootModifier;
 import net.ramen5914.yumby.Yumby;
+import net.ramen5914.yumby.datagen.loot.YumbyLoot;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -23,8 +22,16 @@ public class ModGlobalLootModifierProvider extends GlobalLootModifierProvider {
 
     @Override
     protected void start() {
-        add("cow_bone_from_cow", new AddTableLootModifier(new LootItemCondition[] {
+        add("beef_bone_from_cow", new AddTableLootModifier(new LootItemCondition[] {
                 LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, new EntityPredicate.Builder().of(registries.lookupOrThrow(Registries.ENTITY_TYPE), EntityType.COW)).build()
-        }, ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(Yumby.MOD_ID, "drops/cow_bone"))));
+        }, YumbyLoot.Tables.BEEF_BONE_DROPS));
+
+        add("chicken_bone_from_chicken", new AddTableLootModifier(new LootItemCondition[] {
+                LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, new EntityPredicate.Builder().of(registries.lookupOrThrow(Registries.ENTITY_TYPE), EntityType.CHICKEN)).build()
+        }, YumbyLoot.Tables.CHICKEN_BONE_DROPS));
+
+        add("pork_bone_from_pig", new AddTableLootModifier(new LootItemCondition[] {
+                LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, new EntityPredicate.Builder().of(registries.lookupOrThrow(Registries.ENTITY_TYPE), EntityType.PIG)).build()
+        }, YumbyLoot.Tables.PORK_BONE_DROPS));
     }
 }
