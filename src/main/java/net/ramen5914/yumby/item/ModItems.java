@@ -20,43 +20,7 @@ public class ModItems {
             (properties) -> new KnifeItem(properties
                     .stacksTo(1)));
 
-    public static final DeferredItem<Item> PARING_KNIFE = registerItem("paring_knife",
-            (properties) -> new KnifeItem(properties
-                    .stacksTo(1)));
-
-    public static final DeferredItem<Item> SERRATED_KNIFE = registerItem("serrated_knife",
-            (properties) -> new KnifeItem(properties
-                    .stacksTo(1)));
-
-    public static final DeferredItem<Item> UTILITY_KNIFE = registerItem("utility_knife",
-            (properties) -> new KnifeItem(properties
-                    .stacksTo(1)));
-
-    public static final DeferredItem<Item> BONING_KNIFE = registerItem("boning_knife",
-            (properties) -> new KnifeItem(properties
-                    .stacksTo(1)));
-
-    public static final DeferredItem<Item> SANTOKU_KNIFE = registerItem("santoku_knife",
-            (properties) -> new KnifeItem(properties
-                    .stacksTo(1)));
-
-    public static final DeferredItem<Item> CLEAVER = registerItem("cleaver",
-            (properties) -> new KnifeItem(properties
-                    .stacksTo(1)));
-
-    public static final DeferredItem<Item> FILLET_KNIFE = registerItem("fillet_knife",
-            (properties) -> new KnifeItem(properties
-                    .stacksTo(1)));
-
-    public static final DeferredItem<Item> CARVING_KNIFE = registerItem("carving_knife",
-            (properties) -> new KnifeItem(properties
-                    .stacksTo(1)));
-
-    public static final DeferredItem<Item> NAKIRI_KNIFE = registerItem("nakiri_knife",
-            (properties) -> new KnifeItem(properties
-                    .stacksTo(1)));
-
-    public static final DeferredItem<Item> PEELING_KNIFE = registerItem("peeling_knife",
+    public static final DeferredItem<Item> BUTCHERING_KNIFE = registerItem("butchering_knife",
             (properties) -> new KnifeItem(properties
                     .stacksTo(1)));
 

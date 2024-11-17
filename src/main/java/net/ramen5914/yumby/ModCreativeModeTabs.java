@@ -36,6 +36,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.BEEF_BONE);
                         output.accept(ModItems.CHICKEN_BONE);
                         output.accept(ModItems.PORK_BONE);
+                        output.accept(ModItems.CHEFS_KNIFE);
+                        output.accept(ModItems.BUTCHERING_KNIFE);
                     }).build());
 
     public static void register(IEventBus eventBus) {
