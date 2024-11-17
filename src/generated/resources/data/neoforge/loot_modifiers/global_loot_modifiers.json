@@ -1,6 +1,8 @@
 {
   "entries": [
-    "yumby:cow_bone_from_cow"
+    "yumby:pork_bone_from_pig",
+    "yumby:beef_bone_from_cow",
+    "yumby:chicken_bone_from_chicken"
   ],
   "replace": false
 }
