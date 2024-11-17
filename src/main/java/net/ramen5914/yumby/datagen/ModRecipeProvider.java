@@ -6,12 +6,10 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
-import net.ramen5914.yumby.ModTags;
 import net.ramen5914.yumby.Yumby;
 import net.ramen5914.yumby.block.ModBlocks;
 
@@ -32,6 +30,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('I', Items.IRON_INGOT)
                 .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT))
                 .unlockedBy("has_leather", has(Items.LEATHER))
+                .save(this.output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.PAN)
+                .pattern("  I")
+                .pattern("II ")
+                .pattern("II ")
+                .define('I', Items.IRON_INGOT)
+                .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT))
                 .save(this.output);
 
         bowl(ModBlocks.OAK_BOWL, Blocks.OAK_SLAB)
