@@ -11,7 +11,7 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyC
 import net.neoforged.neoforge.common.data.GlobalLootModifierProvider;
 import net.neoforged.neoforge.common.loot.AddTableLootModifier;
 import net.ramen5914.yumby.Yumby;
-import net.ramen5914.yumby.datagen.loot.YumbyLoot;
+import net.ramen5914.yumby.datagen.loot.YumbyResourceKeys;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -24,14 +24,14 @@ public class ModGlobalLootModifierProvider extends GlobalLootModifierProvider {
     protected void start() {
         add("beef_bone_from_cow", new AddTableLootModifier(new LootItemCondition[] {
                 LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, new EntityPredicate.Builder().of(registries.lookupOrThrow(Registries.ENTITY_TYPE), EntityType.COW)).build()
-        }, YumbyLoot.Tables.BEEF_BONE_DROPS));
+        }, YumbyResourceKeys.LootTables.BEEF_BONE_DROPS));
 
         add("chicken_bone_from_chicken", new AddTableLootModifier(new LootItemCondition[] {
                 LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, new EntityPredicate.Builder().of(registries.lookupOrThrow(Registries.ENTITY_TYPE), EntityType.CHICKEN)).build()
-        }, YumbyLoot.Tables.CHICKEN_BONE_DROPS));
+        }, YumbyResourceKeys.LootTables.CHICKEN_BONE_DROPS));
 
         add("pork_bone_from_pig", new AddTableLootModifier(new LootItemCondition[] {
                 LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, new EntityPredicate.Builder().of(registries.lookupOrThrow(Registries.ENTITY_TYPE), EntityType.PIG)).build()
-        }, YumbyLoot.Tables.PORK_BONE_DROPS));
+        }, YumbyResourceKeys.LootTables.PORK_BONE_DROPS));
     }
 }

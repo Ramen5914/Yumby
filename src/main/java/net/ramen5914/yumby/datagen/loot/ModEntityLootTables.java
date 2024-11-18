@@ -26,7 +26,7 @@ public class ModEntityLootTables extends EntityLootSubProvider {
 
     @Override
     public void generate(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> output) {
-        output.accept(YumbyLoot.Tables.BEEF_BONE_DROPS,
+        output.accept(YumbyResourceKeys.LootTables.BEEF_BONE_DROPS,
                 LootTable.lootTable()
                         .withPool(LootPool.lootPool()
                                 .setRolls(UniformGenerator.between(0, 2))
@@ -34,7 +34,7 @@ public class ModEntityLootTables extends EntityLootSubProvider {
                                         .when(LootItemKilledByPlayerCondition.killedByPlayer())
                                         .when(LootItemRandomChanceWithEnchantedBonusCondition.randomChanceAndLootingBoost(this.registries, 0.35f, 0.075f)))));
 
-        output.accept(YumbyLoot.Tables.CHICKEN_BONE_DROPS,
+        output.accept(YumbyResourceKeys.LootTables.CHICKEN_BONE_DROPS,
                 LootTable.lootTable()
                         .withPool(LootPool.lootPool()
                                 .setRolls(UniformGenerator.between(0, 2))
@@ -42,7 +42,7 @@ public class ModEntityLootTables extends EntityLootSubProvider {
                                         .when(LootItemKilledByPlayerCondition.killedByPlayer())
                                         .when(LootItemRandomChanceWithEnchantedBonusCondition.randomChanceAndLootingBoost(this.registries, 0.35f, 0.075f)))));
 
-        output.accept(YumbyLoot.Tables.PORK_BONE_DROPS,
+        output.accept(YumbyResourceKeys.LootTables.PORK_BONE_DROPS,
                 LootTable.lootTable()
                         .withPool(LootPool.lootPool()
                                 .setRolls(UniformGenerator.between(0, 2))
