@@ -20,6 +20,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
         horizontalBlock(ModBlocks.PAN.get(),
                  new ModelFile.UncheckedModelFile(modLoc("block/pan")));
 
+        horizontalBlock(ModBlocks.OAK_CUTTING_BOARD.get(),
+                new ModelFile.UncheckedModelFile(modLoc("block/oak_cutting_board")));
+
         simpleBlockWithItem(ModBlocks.OAK_BOWL.get(),
                 new ModelFile.UncheckedModelFile(modLoc("block/oak_bowl")));
 
