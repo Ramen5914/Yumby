@@ -15,9 +15,9 @@ public class ModCreativeModeTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Yumby.MOD_ID);
 
-    public static final Supplier<CreativeModeTab> YUMBY_TAB =
-            CREATIVE_MODE_TABS.register("yumby_tab", () -> CreativeModeTab.builder()
-                    .title(Component.translatable(String.format("itemgroup.%s.yumby_tab", Yumby.MOD_ID)))
+    public static final Supplier<CreativeModeTab> YUMBY_COOKWARE_TAB =
+            CREATIVE_MODE_TABS.register("yumby_cookware_tab", () -> CreativeModeTab.builder()
+                    .title(Component.translatable(String.format("itemgroup.%s.yumby_cookware_tab", Yumby.MOD_ID)))
                     .icon(() -> new ItemStack(ModBlocks.POT.get()))
                     .displayItems((parameters, output) -> {
                         output.accept(ModBlocks.POT);
@@ -33,9 +33,6 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.CRIMSON_BOWL);
                         output.accept(ModBlocks.WARPED_BOWL);
                         output.accept(ModBlocks.BAMBOO_BOWL);
-                        output.accept(ModItems.BEEF_BONE);
-                        output.accept(ModItems.CHICKEN_BONE);
-                        output.accept(ModItems.PORK_BONE);
                         output.accept(ModItems.CHEFS_KNIFE);
                         output.accept(ModItems.BUTCHERING_KNIFE);
                         output.accept(ModBlocks.OAK_CUTTING_BOARD);
@@ -50,6 +47,17 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.WARPED_CUTTING_BOARD);
                         output.accept(ModBlocks.BAMBOO_CUTTING_BOARD);
                     }).build());
+
+    public static final Supplier<CreativeModeTab> YUMBY_FOOD_TAB =
+            CREATIVE_MODE_TABS.register("yumby_food_tab", () -> CreativeModeTab.builder()
+                    .title(Component.translatable(String.format("itemgroup.%s.yumby_food_tab", Yumby.MOD_ID)))
+                    .icon(() -> new ItemStack(ModItems.BEEF_BONE.get()))
+                    .displayItems((itemDisplayParameters, output) -> {
+                        output.accept(ModItems.BEEF_BONE);
+                        output.accept(ModItems.CHICKEN_BONE);
+                        output.accept(ModItems.PORK_BONE);
+                    })
+                    .build());
 
     public static void register(IEventBus eventBus) {
         CREATIVE_MODE_TABS.register(eventBus);
