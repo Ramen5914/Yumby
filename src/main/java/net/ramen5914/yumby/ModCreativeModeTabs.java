@@ -38,6 +38,17 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.PORK_BONE);
                         output.accept(ModItems.CHEFS_KNIFE);
                         output.accept(ModItems.BUTCHERING_KNIFE);
+                        output.accept(ModBlocks.OAK_CUTTING_BOARD);
+                        output.accept(ModBlocks.SPRUCE_CUTTING_BOARD);
+                        output.accept(ModBlocks.BIRCH_CUTTING_BOARD);
+                        output.accept(ModBlocks.JUNGLE_CUTTING_BOARD);
+                        output.accept(ModBlocks.ACACIA_CUTTING_BOARD);
+                        output.accept(ModBlocks.DARK_OAK_CUTTING_BOARD);
+                        output.accept(ModBlocks.MANGROVE_CUTTING_BOARD);
+                        output.accept(ModBlocks.CHERRY_CUTTING_BOARD);
+                        output.accept(ModBlocks.CRIMSON_CUTTING_BOARD);
+                        output.accept(ModBlocks.WARPED_CUTTING_BOARD);
+                        output.accept(ModBlocks.BAMBOO_CUTTING_BOARD);
                     }).build());
 
     public static void register(IEventBus eventBus) {
