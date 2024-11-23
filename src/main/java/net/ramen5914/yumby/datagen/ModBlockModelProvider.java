@@ -24,10 +24,27 @@ public class ModBlockModelProvider extends BlockModelProvider {
         bowl("oak_bowl", mcLoc("block/oak_planks"));
         bowl("spruce_bowl", mcLoc("block/spruce_planks"));
         bowl("warped_bowl", mcLoc("block/warped_planks"));
+
+        cuttingBoard("acacia_cutting_board", mcLoc("block/acacia_planks"));
+        cuttingBoard("bamboo_cutting_board", mcLoc("block/bamboo_planks"));
+        cuttingBoard("birch_cutting_board", mcLoc("block/birch_planks"));
+        cuttingBoard("cherry_cutting_board", mcLoc("block/cherry_planks"));
+        cuttingBoard("crimson_cutting_board", mcLoc("block/crimson_planks"));
+        cuttingBoard("dark_oak_cutting_board", mcLoc("block/dark_oak_planks"));
+        cuttingBoard("jungle_cutting_board", mcLoc("block/jungle_planks"));
+        cuttingBoard("mangrove_cutting_board", mcLoc("block/mangrove_planks"));
+        cuttingBoard("oak_cutting_board", modLoc("block/oak_cutting_board"));
+        cuttingBoard("spruce_cutting_board", mcLoc("block/spruce_planks"));
+        cuttingBoard("warped_cutting_board", mcLoc("block/warped_planks"));
     }
 
     private void bowl(String name, ResourceLocation material) {
         withExistingParent(name, modLoc("block/bowl"))
+                .texture("material", material);
+    }
+
+    private void cuttingBoard(String name, ResourceLocation material) {
+        withExistingParent(name, modLoc("block/cutting_board"))
                 .texture("material", material);
     }
 }
