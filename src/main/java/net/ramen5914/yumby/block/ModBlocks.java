@@ -12,6 +12,7 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.ramen5914.yumby.Yumby;
 import net.ramen5914.yumby.block.custom.BowlBlock;
+import net.ramen5914.yumby.block.custom.CuttingBoardBlock;
 import net.ramen5914.yumby.block.custom.PanBlock;
 import net.ramen5914.yumby.block.custom.PotBlock;
 import net.ramen5914.yumby.item.ModItems;
@@ -85,6 +86,61 @@ public class ModBlocks {
 
     public static DeferredBlock<Block> BAMBOO_BOWL = registerBlock("bamboo_bowl",
             (properties) -> new BowlBlock(properties
+                    .noOcclusion()),
+            (properties) -> properties);
+
+    public static DeferredBlock<Block> OAK_CUTTING_BOARD = registerBlock("oak_cutting_board",
+            (properties) -> new CuttingBoardBlock(properties
+                    .noOcclusion()),
+            (properties) -> properties);
+
+    public static DeferredBlock<Block> SPRUCE_CUTTING_BOARD = registerBlock("spruce_cutting_board",
+            (properties) -> new CuttingBoardBlock(properties
+                    .noOcclusion()),
+            (properties) -> properties);
+
+    public static DeferredBlock<Block> BIRCH_CUTTING_BOARD = registerBlock("birch_cutting_board",
+            (properties) -> new CuttingBoardBlock(properties
+                    .noOcclusion()),
+            (properties) -> properties);
+
+    public static DeferredBlock<Block> JUNGLE_CUTTING_BOARD = registerBlock("jungle_cutting_board",
+            (properties) -> new CuttingBoardBlock(properties
+                    .noOcclusion()),
+            (properties) -> properties);
+
+    public static DeferredBlock<Block> ACACIA_CUTTING_BOARD = registerBlock("acacia_cutting_board",
+            (properties) -> new CuttingBoardBlock(properties
+                    .noOcclusion()),
+            (properties) -> properties);
+
+    public static DeferredBlock<Block> DARK_OAK_CUTTING_BOARD = registerBlock("dark_oak_cutting_board",
+            (properties) -> new CuttingBoardBlock(properties
+                    .noOcclusion()),
+            (properties) -> properties);
+
+    public static DeferredBlock<Block> MANGROVE_CUTTING_BOARD = registerBlock("mangrove_oak_cutting_board",
+            (properties) -> new CuttingBoardBlock(properties
+                    .noOcclusion()),
+            (properties) -> properties);
+
+    public static DeferredBlock<Block> CHERRY_CUTTING_BOARD = registerBlock("cherry_cutting_board",
+            (properties) -> new CuttingBoardBlock(properties
+                    .noOcclusion()),
+            (properties) -> properties);
+
+    public static DeferredBlock<Block> CRIMSON_CUTTING_BOARD = registerBlock("crimson_cutting_board",
+            (properties) -> new CuttingBoardBlock(properties
+                    .noOcclusion()),
+            (properties) -> properties);
+
+    public static DeferredBlock<Block> WARPED_CUTTING_BOARD = registerBlock("warped_cutting_board",
+            (properties) -> new CuttingBoardBlock(properties
+                    .noOcclusion()),
+            (properties) -> properties);
+
+    public static DeferredBlock<Block> BAMBOO_CUTTING_BOARD = registerBlock("bamboo_cutting_board",
+            (properties) -> new CuttingBoardBlock(properties
                     .noOcclusion()),
             (properties) -> properties);
 
