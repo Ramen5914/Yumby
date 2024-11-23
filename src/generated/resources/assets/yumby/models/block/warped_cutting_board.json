@@ -1,0 +1,6 @@
+{
+  "parent": "yumby:block/cutting_board",
+  "textures": {
+    "material": "minecraft:block/warped_planks"
+  }
+}

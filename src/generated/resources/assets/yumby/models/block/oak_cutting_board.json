@@ -1,0 +1,6 @@
+{
+  "parent": "yumby:block/cutting_board",
+  "textures": {
+    "material": "yumby:block/oak_cutting_board"
+  }
+}
