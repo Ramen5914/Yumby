@@ -30,6 +30,18 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         dropSelf(ModBlocks.CRIMSON_BOWL.get());
         dropSelf(ModBlocks.WARPED_BOWL.get());
         dropSelf(ModBlocks.BAMBOO_BOWL.get());
+
+        dropSelf(ModBlocks.OAK_CUTTING_BOARD.get());
+        dropSelf(ModBlocks.SPRUCE_CUTTING_BOARD.get());
+        dropSelf(ModBlocks.BIRCH_CUTTING_BOARD.get());
+        dropSelf(ModBlocks.JUNGLE_CUTTING_BOARD.get());
+        dropSelf(ModBlocks.ACACIA_CUTTING_BOARD.get());
+        dropSelf(ModBlocks.DARK_OAK_CUTTING_BOARD.get());
+        dropSelf(ModBlocks.MANGROVE_CUTTING_BOARD.get());
+        dropSelf(ModBlocks.CHERRY_CUTTING_BOARD.get());
+        dropSelf(ModBlocks.CRIMSON_CUTTING_BOARD.get());
+        dropSelf(ModBlocks.WARPED_CUTTING_BOARD.get());
+        dropSelf(ModBlocks.BAMBOO_CUTTING_BOARD.get());
     }
 
     @Override
