@@ -14,7 +14,9 @@ import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import net.ramen5914.yumby.block.ModBlocks;
+import net.ramen5914.yumby.block.entity.ModBlockEntities;
 import net.ramen5914.yumby.item.ModItems;
+import net.ramen5914.yumby.recipe.ModRecipes;
 import org.slf4j.Logger;
 
 @Mod(Yumby.MOD_ID)
@@ -27,9 +29,12 @@ public class Yumby {
         modEventBus.addListener(this::commonSetup);
 
         ModCreativeModeTabs.register(modEventBus);
-
+        
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+        ModBlockEntities.register(modEventBus);
+
+        ModRecipes.register(modEventBus);
 
         NeoForge.EVENT_BUS.register(this);
 
