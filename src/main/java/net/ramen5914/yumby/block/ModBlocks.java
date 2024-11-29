@@ -13,7 +13,6 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.ramen5914.yumby.Yumby;
 import net.ramen5914.yumby.block.custom.BowlBlock;
 import net.ramen5914.yumby.block.custom.CuttingBoardBlock;
-import net.ramen5914.yumby.block.custom.OnionCropBlock;
 import net.ramen5914.yumby.block.custom.PanBlock;
 import net.ramen5914.yumby.block.custom.PotBlock;
 import net.ramen5914.yumby.item.ModItems;
@@ -145,9 +144,9 @@ public class ModBlocks {
                     .noOcclusion()),
             (properties) -> properties);
             
-    public static DeferredBlock<Block> ONION_CROP = registerBlock("onion_crop",
-            (properties) -> new OnionCropBlock(properties),
-            (properties) -> properties);
+//    public static DeferredBlock<Block> ONION_CROP = registerBlock("onion_crop",
+//            (properties) -> new OnionCropBlock(properties),
+//            (properties) -> properties);
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Function<BlockBehaviour.Properties, T> blockSupplier, Function<Item.Properties, Item.Properties> itemSupplier) {
         BlockBehaviour.Properties blockProperties = BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(Yumby.MOD_ID, name)));

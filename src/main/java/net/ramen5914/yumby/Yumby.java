@@ -10,11 +10,13 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import net.ramen5914.yumby.block.ModBlocks;
 import net.ramen5914.yumby.block.entity.ModBlockEntities;
+import net.ramen5914.yumby.block.entity.renderer.PotBlockEntityRenderer;
 import net.ramen5914.yumby.item.ModItems;
 import net.ramen5914.yumby.recipe.ModRecipes;
 import org.slf4j.Logger;
@@ -56,5 +58,10 @@ public class Yumby {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) { }
+
+        @SubscribeEvent
+        public static void registerBlockEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
+            event.registerBlockEntityRenderer(ModBlockEntities.POT_BE.get(), PotBlockEntityRenderer::new);
+        }
     }
 }

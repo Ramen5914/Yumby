@@ -18,6 +18,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class PotBlockEntity extends BlockEntity implements Container {
     private final NonNullList<ItemStack> inventory = NonNullList.withSize(15, ItemStack.EMPTY);
+    private float rotation;
 
     public PotBlockEntity(BlockPos pos, BlockState blockState) {
         super(ModBlockEntities.POT_BE.get(), pos, blockState);
@@ -88,6 +89,15 @@ public class PotBlockEntity extends BlockEntity implements Container {
         super.loadAdditional(tag, registries);
 
         ContainerHelper.loadAllItems(tag, inventory, registries);
+    }
+
+    public float getRenderingRotation() {
+        rotation += 0.5f;
+        if (rotation >= 360) {
+            rotation = 0;
+        }
+
+        return rotation;
     }
 
     @Override

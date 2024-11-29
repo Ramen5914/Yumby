@@ -4,13 +4,11 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.ramen5914.yumby.Yumby;
-import net.ramen5914.yumby.block.ModBlocks;
 import net.ramen5914.yumby.item.custom.KnifeItem;
 
 import java.util.function.Function;
@@ -32,8 +30,8 @@ public class ModItems {
 
     public static final DeferredItem<Item> PORK_BONE = registerItem("pork_bone", Item::new);
 
-    public static final DeferredItem<Item> ONION_SEEDS = registerItem("onion_seeds",
-            (properties) -> new BlockItem(ModBlocks.ONION_CROP.get(), properties));
+//    public static final DeferredItem<Item> ONION_SEEDS = registerItem("onion_seeds",
+//            (properties) -> new BlockItem(ModBlocks.ONION_CROP.get(), properties));
 
     private static ResourceKey<Item> createKey(ResourceKey<? extends Registry<Item>> resourceKey, String id) {
         return ResourceKey.create(resourceKey, ResourceLocation.fromNamespaceAndPath(Yumby.MOD_ID, id));

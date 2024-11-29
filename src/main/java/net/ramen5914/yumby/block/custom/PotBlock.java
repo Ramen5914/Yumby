@@ -2,6 +2,9 @@ package net.ramen5914.yumby.block.custom;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -56,11 +59,33 @@ public class PotBlock extends BaseEntityBlock {
 
     @Override
     protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean movedByPiston) {
+        if (state.getBlock() != newState.getBlock()) {
+            if (level.getBlockEntity(pos) instanceof PotBlockEntity potBlockEntity) {
+                Containers.dropContents(level, pos, potBlockEntity);
+                level.updateNeighbourForOutputSignal(pos, this);
+            }
+        }
+
         super.onRemove(state, level, pos, newState, movedByPiston);
     }
 
     @Override
     protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
-        return super.useItemOn(stack, state, level, pos, player, hand, hitResult);
+        if (level.getBlockEntity(pos) instanceof PotBlockEntity potBlockEntity) {
+            if (potBlockEntity.isEmpty() && !stack.isEmpty()) {
+                potBlockEntity.setItem(0, stack);
+                stack.shrink(1);
+
+                level.playSound(player, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1f, 2f);
+            } else if (!potBlockEntity.isEmpty() && stack.isEmpty()) {
+                ItemStack stackInPot = potBlockEntity.getItem(0);
+                player.setItemInHand(InteractionHand.MAIN_HAND, stackInPot);
+                potBlockEntity.clearContent();
+
+                level.playSound(player, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1f, 1f);
+            }
+        }
+
+        return InteractionResult.SUCCESS;
     }
 }
