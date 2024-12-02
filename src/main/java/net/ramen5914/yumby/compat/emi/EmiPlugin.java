@@ -5,7 +5,7 @@
 //import dev.emi.emi.api.EmiRegistry;
 //
 //@EmiEntrypoint
-//public class ModEmiPlugin implements EmiPlugin {
+//public class EmiPlugin implements EmiPlugin {
 //    @Override
 //    public void register(EmiRegistry registry) {
 //
