@@ -24,6 +24,10 @@ public class ModItems {
             (properties) -> new KnifeItem(properties
                     .stacksTo(1)));
 
+    public static final DeferredItem<Item> FILLET_KNIFE = registerItem("fillet_knife",
+            (properties -> new KnifeItem(properties
+                    .stacksTo(1))));
+
     public static final DeferredItem<Item> BEEF_BONE = registerItem("beef_bone", Item::new);
 
     public static final DeferredItem<Item> CHICKEN_BONE = registerItem("chicken_bone", Item::new);
