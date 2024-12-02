@@ -14,7 +14,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        simpleBlockWithItem(ModBlocks.POT.get(),
+        horizontalBlock(ModBlocks.POT.get(),
                 new ModelFile.UncheckedModelFile(modLoc("block/pot")));
 
         horizontalBlock(ModBlocks.PAN.get(),
