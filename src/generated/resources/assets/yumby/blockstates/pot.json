@@ -1,7 +1,19 @@
 {
   "variants": {
-    "": {
+    "facing=east": {
+      "model": "yumby:block/pot",
+      "y": 90
+    },
+    "facing=north": {
       "model": "yumby:block/pot"
+    },
+    "facing=south": {
+      "model": "yumby:block/pot",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "yumby:block/pot",
+      "y": 270
     }
   }
 }
