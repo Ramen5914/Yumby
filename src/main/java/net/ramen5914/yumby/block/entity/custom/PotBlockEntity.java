@@ -10,18 +10,51 @@ import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.ramen5914.yumby.block.entity.ModBlockEntities;
+import net.ramen5914.yumby.item.ModItems;
 import org.jetbrains.annotations.Nullable;
 
 public class PotBlockEntity extends BlockEntity implements Container {
     private final NonNullList<ItemStack> inventory = NonNullList.withSize(15, ItemStack.EMPTY);
     private float rotation;
 
+    private final ContainerData data;
+    private int progress = 0;
+    private int maxProgress = 72;
+    private final int DEFAULT_MAX_PROGRESS = 72;
+
     public PotBlockEntity(BlockPos pos, BlockState blockState) {
         super(ModBlockEntities.POT_BE.get(), pos, blockState);
+        this.data = new ContainerData() {
+            @Override
+            public int get(int i) {
+                return switch (i) {
+                    case 0 -> PotBlockEntity.this.progress;
+                    case 1 -> PotBlockEntity.this.maxProgress;
+                    default -> 0;
+                };
+            }
+
+            @Override
+            public void set(int i, int value) {
+                switch (i) {
+                    case 0: PotBlockEntity.this.progress = value;
+                    case 1: PotBlockEntity.this.maxProgress = value;
+                }
+            }
+
+            @Override
+            public int getCount() {
+                return 2;
+            }
+        };
     }
 
     @Override
@@ -80,6 +113,9 @@ public class PotBlockEntity extends BlockEntity implements Container {
 
     @Override
     protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+        tag.putInt("pot.progress", progress);
+        tag.putInt("pot.max_progress", maxProgress);
+
         super.saveAdditional(tag, registries);
 
         ContainerHelper.saveAllItems(tag, inventory, registries);
@@ -89,16 +125,67 @@ public class PotBlockEntity extends BlockEntity implements Container {
     protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.loadAdditional(tag, registries);
 
+        progress = tag.getInt("pot.progress");
+        maxProgress = tag.getInt("pot.max_progress");
+
         ContainerHelper.loadAllItems(tag, inventory, registries);
     }
 
-    public float getRenderingRotation() {
-        rotation += 0.5f;
-        if (rotation >= 360) {
-            rotation = 0;
-        }
+    public void tick(Level level, BlockPos pos, BlockState state) {
+        if (hasRecipe() && isOutputSlotEmptyOrReceivable()) {
+            increaseCraftingProgress();
+            setChanged(level, pos, state);
 
-        return rotation;
+            if (hasCraftingFinished()) {
+                craftItem();
+                resetProgress();
+
+                setChanged();
+                this.level.sendBlockUpdated(pos, state, state, Block.UPDATE_ALL);
+            }
+        } else {
+            resetProgress();
+        }
+    }
+
+    private void resetProgress() {
+        this.progress = 0;
+        this.maxProgress = DEFAULT_MAX_PROGRESS;
+    }
+
+    private void craftItem() {
+        ItemStack output = new ItemStack(Items.BONE);
+
+        inventory.getFirst().shrink(1);
+
+        this.setItem(0, output);
+    }
+
+    private boolean hasCraftingFinished() {
+        return this.progress >= this.maxProgress;
+    }
+
+    private void increaseCraftingProgress() {
+        this.progress++;
+    }
+
+    private boolean isOutputSlotEmptyOrReceivable() {
+        return true;
+    }
+
+    private boolean hasRecipe() {
+        ItemStack input = new ItemStack(ModItems.BEEF_BONE.get());
+        ItemStack output = new ItemStack(Items.BONE);
+
+        return canInsertAmountIntoOutputSlot(output.getCount()) && canInsertItemIntoOutputSlot(output) && this.inventory.getFirst().getItem() == input.getItem();
+    }
+
+    private boolean canInsertItemIntoOutputSlot(ItemStack output) {
+        return true;
+    }
+
+    private boolean canInsertAmountIntoOutputSlot(int count) {
+        return true;
     }
 
     @Override
@@ -109,5 +196,14 @@ public class PotBlockEntity extends BlockEntity implements Container {
     @Override
     public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
         return saveWithoutMetadata(registries);
+    }
+
+    public float getRenderingRotation() {
+        rotation += 0.5f;
+        if (rotation >= 360) {
+            rotation = 0;
+        }
+
+        return rotation;
     }
 }
