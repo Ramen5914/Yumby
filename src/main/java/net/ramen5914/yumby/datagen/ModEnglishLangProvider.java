@@ -6,6 +6,7 @@ import net.neoforged.neoforge.common.data.LanguageProvider;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.ramen5914.yumby.Yumby;
 import net.ramen5914.yumby.block.ModBlocks;
+import net.ramen5914.yumby.item.ModItems;
 
 public class ModEnglishLangProvider extends LanguageProvider {
     public ModEnglishLangProvider(PackOutput output) {
@@ -28,6 +29,10 @@ public class ModEnglishLangProvider extends LanguageProvider {
         addBlockAndItem(ModBlocks.CRIMSON_BOWL, "Crimson Bowl");
         addBlockAndItem(ModBlocks.WARPED_BOWL, "Warped Bowl");
         addBlockAndItem(ModBlocks.BAMBOO_BOWL, "Bamboo Bowl");
+
+        addItem(ModItems.CHEFS_KNIFE, "Chef's Knife");
+        addItem(ModItems.BUTCHERING_KNIFE, "Butchering Knife");
+        addItem(ModItems.FILLET_KNIFE, "Fillet Knife");
 
         add(String.format("itemgroup.%s.yumby_tab", Yumby.MOD_ID), "Yumby");
     }
