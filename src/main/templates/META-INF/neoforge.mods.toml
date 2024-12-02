@@ -37,3 +37,10 @@ type="optional"
 versionRange="${emi_version_range}"
 ordering="NONE"
 side="BOTH"
+
+[[dependencies.${mod_id}]]
+modId="jade"
+type="optional"
+versionRange="${jade_version_range}"
+ordering="NONE"
+side="BOTH"
