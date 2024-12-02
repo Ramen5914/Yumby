@@ -1,5 +1,15 @@
 {
   "values": [
-    "yumby:acacia_cutting_board"
+    "yumby:acacia_cutting_board",
+    "yumby:bamboo_cutting_board",
+    "yumby:birch_cutting_board",
+    "yumby:cherry_cutting_board",
+    "yumby:crimson_cutting_board",
+    "yumby:dark_oak_cutting_board",
+    "yumby:jungle_cutting_board",
+    "yumby:oak_cutting_board",
+    "yumby:spruce_cutting_board",
+    "yumby:mangrove_oak_cutting_board",
+    "yumby:warped_cutting_board"
   ]
 }
