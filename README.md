@@ -74,6 +74,9 @@
 ### Whisk
 - Blending, whipping
 
+### Serving Spoon / Laddle
+- Self-explanatory
+
 ### Knives
 #### Chef's Knife
 - Primary Use:
