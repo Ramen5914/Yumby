@@ -52,6 +52,7 @@ public class PotBlockEntity extends BlockEntity implements Container {
         setChanged();
         ItemStack stack = inventory.get(slot);
         stack.shrink(amount);
+
         return inventory.set(slot, stack);
     }
 
