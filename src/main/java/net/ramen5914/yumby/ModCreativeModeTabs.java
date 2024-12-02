@@ -35,6 +35,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.BAMBOO_BOWL);
                         output.accept(ModItems.CHEFS_KNIFE);
                         output.accept(ModItems.BUTCHERING_KNIFE);
+                        output.accept(ModItems.FILLET_KNIFE);
                         output.accept(ModBlocks.OAK_CUTTING_BOARD);
                         output.accept(ModBlocks.SPRUCE_CUTTING_BOARD);
                         output.accept(ModBlocks.BIRCH_CUTTING_BOARD);
