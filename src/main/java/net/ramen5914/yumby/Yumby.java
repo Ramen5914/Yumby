@@ -16,6 +16,7 @@ import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import net.ramen5914.yumby.block.ModBlocks;
 import net.ramen5914.yumby.block.entity.ModBlockEntities;
+import net.ramen5914.yumby.block.entity.renderer.CuttingBoardBlockEntityRenderer;
 import net.ramen5914.yumby.block.entity.renderer.PotBlockEntityRenderer;
 import net.ramen5914.yumby.item.ModItems;
 import net.ramen5914.yumby.recipe.ModRecipes;
@@ -62,6 +63,7 @@ public class Yumby {
         @SubscribeEvent
         public static void registerBlockEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
             event.registerBlockEntityRenderer(ModBlockEntities.POT_BE.get(), PotBlockEntityRenderer::new);
+            event.registerBlockEntityRenderer(ModBlockEntities.CUTTING_BOARD_BE.get(), CuttingBoardBlockEntityRenderer::new);
         }
     }
 }
