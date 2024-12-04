@@ -1,4 +1,4 @@
-package net.ramen5914.yumby.recipe;
+package net.ramen5914.yumby.recipe.boiling;
 
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeInput;

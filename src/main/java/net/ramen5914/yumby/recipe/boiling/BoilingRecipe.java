@@ -1,4 +1,4 @@
-package net.ramen5914.yumby.recipe;
+package net.ramen5914.yumby.recipe.boiling;
 
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -8,6 +8,7 @@ import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
+import net.ramen5914.yumby.recipe.ModRecipes;
 
 import java.util.ArrayList;
 import java.util.List;
