@@ -19,9 +19,9 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.ramen5914.yumby.block.entity.ModBlockEntities;
+import net.ramen5914.yumby.recipe.ModRecipes;
 import net.ramen5914.yumby.recipe.boiling.BoilingRecipe;
 import net.ramen5914.yumby.recipe.boiling.BoilingRecipeInput;
-import net.ramen5914.yumby.recipe.ModRecipes;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
