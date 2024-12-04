@@ -2,10 +2,9 @@ package net.ramen5914.yumby.datagen;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.BlockTags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.ramen5914.yumby.ModTags;
 import net.ramen5914.yumby.Yumby;
 import net.ramen5914.yumby.block.ModBlocks;
 import org.jetbrains.annotations.Nullable;
@@ -19,7 +18,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
-        tag(BlockTags.create(ResourceLocation.fromNamespaceAndPath(Yumby.MOD_ID, "cutting_boards")))
+        tag(ModTags.Blocks.CUTTING_BOARDS)
                 .add(ModBlocks.ACACIA_CUTTING_BOARD.get())
                 .add(ModBlocks.BAMBOO_CUTTING_BOARD.get())
                 .add(ModBlocks.BIRCH_CUTTING_BOARD.get())
