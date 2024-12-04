@@ -7,19 +7,24 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.ramen5914.yumby.block.entity.ModBlockEntities;
-import net.ramen5914.yumby.item.ModItems;
+import net.ramen5914.yumby.recipe.boiling.BoilingRecipe;
+import net.ramen5914.yumby.recipe.boiling.BoilingRecipeInput;
+import net.ramen5914.yumby.recipe.ModRecipes;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Optional;
 
 public class PotBlockEntity extends BlockEntity implements Container {
     private final NonNullList<ItemStack> inventory = NonNullList.withSize(15, ItemStack.EMPTY);
@@ -154,7 +159,8 @@ public class PotBlockEntity extends BlockEntity implements Container {
     }
 
     private void craftItem() {
-        ItemStack output = new ItemStack(Items.BONE);
+        Optional<RecipeHolder<BoilingRecipe>> recipe = getCurrentRecipe();
+        ItemStack output = recipe.get().value().output();
 
         inventory.getFirst().shrink(1);
 
@@ -174,10 +180,26 @@ public class PotBlockEntity extends BlockEntity implements Container {
     }
 
     private boolean hasRecipe() {
-        ItemStack input = new ItemStack(ModItems.BEEF_BONE.get());
-        ItemStack output = new ItemStack(Items.BONE);
+        Optional<RecipeHolder<BoilingRecipe>> recipe = getCurrentRecipe();
 
-        return canInsertAmountIntoOutputSlot(output.getCount()) && canInsertItemIntoOutputSlot(output) && this.inventory.getFirst().getItem() == input.getItem();
+        if (recipe.isEmpty()) {
+            return false;
+        }
+
+        ItemStack output = recipe.get().value().output();
+
+        return canInsertAmountIntoOutputSlot(output.getCount()) && canInsertItemIntoOutputSlot(output);
+    }
+
+    private Optional<RecipeHolder<BoilingRecipe>> getCurrentRecipe() {
+        if (!level.isClientSide() && level instanceof ServerLevel serverLevel) {
+            return serverLevel.recipeAccess().getRecipeFor(
+                    ModRecipes.BOILING_TYPE.get(),
+                    new BoilingRecipeInput(inventory.getFirst()),
+                    serverLevel);
+        } else {
+            return Optional.empty();
+        }
     }
 
     private boolean canInsertItemIntoOutputSlot(ItemStack output) {
