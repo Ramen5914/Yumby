@@ -2,7 +2,6 @@ package net.ramen5914.yumby.datagen;
 
 import net.minecraft.advancements.critereon.EntityPredicate;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.storage.loot.LootContext;
@@ -23,15 +22,15 @@ public class ModGlobalLootModifierProvider extends GlobalLootModifierProvider {
     @Override
     protected void start() {
         add("beef_bone_from_cow", new AddTableLootModifier(new LootItemCondition[] {
-                LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, new EntityPredicate.Builder().of(registries.lookupOrThrow(Registries.ENTITY_TYPE), EntityType.COW)).build()
+                LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, new EntityPredicate.Builder().of(EntityType.COW)).build()
         }, YumbyResourceKeys.LootTables.BEEF_BONE_DROPS));
 
         add("chicken_bone_from_chicken", new AddTableLootModifier(new LootItemCondition[] {
-                LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, new EntityPredicate.Builder().of(registries.lookupOrThrow(Registries.ENTITY_TYPE), EntityType.CHICKEN)).build()
+                LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, new EntityPredicate.Builder().of(EntityType.CHICKEN)).build()
         }, YumbyResourceKeys.LootTables.CHICKEN_BONE_DROPS));
 
         add("pork_bone_from_pig", new AddTableLootModifier(new LootItemCondition[] {
-                LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, new EntityPredicate.Builder().of(registries.lookupOrThrow(Registries.ENTITY_TYPE), EntityType.PIG)).build()
+                LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, new EntityPredicate.Builder().of(EntityType.PIG)).build()
         }, YumbyResourceKeys.LootTables.PORK_BONE_DROPS));
     }
 }
