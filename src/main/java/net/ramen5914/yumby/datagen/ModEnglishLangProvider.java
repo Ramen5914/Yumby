@@ -1,9 +1,7 @@
 package net.ramen5914.yumby.datagen;
 
 import net.minecraft.data.PackOutput;
-import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.LanguageProvider;
-import net.neoforged.neoforge.registries.DeferredBlock;
 import net.ramen5914.yumby.Yumby;
 import net.ramen5914.yumby.block.ModBlocks;
 import net.ramen5914.yumby.item.ModItems;
@@ -15,30 +13,31 @@ public class ModEnglishLangProvider extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
-        addBlockAndItem(ModBlocks.POT, "Pot");
-        addBlockAndItem(ModBlocks.PAN, "Pan");
+        // Cooking Utility
+        addBlock(ModBlocks.POT, "Pot");
+        addBlock(ModBlocks.PAN, "Pan");
 
-        addBlockAndItem(ModBlocks.OAK_BOWL, "Oak Bowl");
-        addBlockAndItem(ModBlocks.SPRUCE_BOWL, "Spruce Bowl");
-        addBlockAndItem(ModBlocks.BIRCH_BOWL, "Birch Bowl");
-        addBlockAndItem(ModBlocks.JUNGLE_BOWL, "Jungle Bowl");
-        addBlockAndItem(ModBlocks.ACACIA_BOWL, "Acacia Bowl");
-        addBlockAndItem(ModBlocks.DARK_OAK_BOWL, "Dark Oak Bowl");
-        addBlockAndItem(ModBlocks.MANGROVE_BOWL, "Mangrove Bowl");
-        addBlockAndItem(ModBlocks.CHERRY_BOWL, "Cherry Bowl");
-        addBlockAndItem(ModBlocks.CRIMSON_BOWL, "Crimson Bowl");
-        addBlockAndItem(ModBlocks.WARPED_BOWL, "Warped Bowl");
-        addBlockAndItem(ModBlocks.BAMBOO_BOWL, "Bamboo Bowl");
+        // Bowls
+        addBlock(ModBlocks.OAK_BOWL, "Oak Bowl");
+        addBlock(ModBlocks.SPRUCE_BOWL, "Spruce Bowl");
+        addBlock(ModBlocks.BIRCH_BOWL, "Birch Bowl");
+        addBlock(ModBlocks.JUNGLE_BOWL, "Jungle Bowl");
+        addBlock(ModBlocks.ACACIA_BOWL, "Acacia Bowl");
+        addBlock(ModBlocks.DARK_OAK_BOWL, "Dark Oak Bowl");
+        addBlock(ModBlocks.MANGROVE_BOWL, "Mangrove Bowl");
+        addBlock(ModBlocks.CHERRY_BOWL, "Cherry Bowl");
+        addBlock(ModBlocks.CRIMSON_BOWL, "Crimson Bowl");
+        addBlock(ModBlocks.WARPED_BOWL, "Warped Bowl");
+        addBlock(ModBlocks.BAMBOO_BOWL, "Bamboo Bowl");
 
+        // Knives
         addItem(ModItems.CHEFS_KNIFE, "Chef's Knife");
         addItem(ModItems.BUTCHERING_KNIFE, "Butchering Knife");
         addItem(ModItems.FILLET_KNIFE, "Fillet Knife");
 
-        add(String.format("itemgroup.%s.yumby_tab", Yumby.MOD_ID), "Yumby");
-    }
+        // Jade
+        add("config.jade.plugin_yumby.jadetest", "what am i supposed to put here");
 
-    private void addBlockAndItem(DeferredBlock<Block> block, String name) {
-        addBlock(block, name);
-        addItem(block::asItem, name);
+        add(String.format("itemgroup.%s.yumby_tab", Yumby.MOD_ID), "Yumby");
     }
 }
