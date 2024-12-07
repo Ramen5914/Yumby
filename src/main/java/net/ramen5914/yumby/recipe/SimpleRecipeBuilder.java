@@ -1,11 +1,7 @@
 package net.ramen5914.yumby.recipe;
 
 import net.minecraft.advancements.Criterion;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeBuilder;
-import net.minecraft.data.recipes.RecipeOutput;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.Nullable;
@@ -24,23 +20,21 @@ public abstract class SimpleRecipeBuilder implements RecipeBuilder {
     }
 
     @Override
-    public SimpleRecipeBuilder unlockedBy(String name, Criterion<?> criterion) {
+    public RecipeBuilder unlockedBy(String name, Criterion<?> criterion) {
         this.criteria.put(name, criterion);
+
         return this;
     }
 
     @Override
-    public SimpleRecipeBuilder group(@Nullable String group) {
+    public RecipeBuilder group(@Nullable String group) {
         this.group = group;
+
         return this;
     }
 
     @Override
     public Item getResult() {
         return this.result.getItem();
-    }
-
-    public void save(RecipeOutput recipeOutput, ResourceLocation resourceLocation) {
-        this.save(recipeOutput, ResourceKey.create(Registries.RECIPE, resourceLocation));
     }
 }
