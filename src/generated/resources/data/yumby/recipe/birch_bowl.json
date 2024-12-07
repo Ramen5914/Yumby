@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "M": "minecraft:birch_slab"
+    "M": {
+      "item": "minecraft:birch_slab"
+    }
   },
   "pattern": [
     "M M",

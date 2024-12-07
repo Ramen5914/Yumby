@@ -1,6 +1,8 @@
 {
   "type": "yumby:boiling",
-  "ingredient": "yumby:beef_bone",
+  "ingredient": {
+    "item": "yumby:beef_bone"
+  },
   "result": {
     "count": 1,
     "id": "minecraft:bone"

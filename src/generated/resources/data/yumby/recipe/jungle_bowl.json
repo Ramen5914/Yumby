@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "M": "minecraft:jungle_slab"
+    "M": {
+      "item": "minecraft:jungle_slab"
+    }
   },
   "pattern": [
     "M M",

@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "M": "minecraft:cherry_slab"
+    "M": {
+      "item": "minecraft:cherry_slab"
+    }
   },
   "pattern": [
     "M M",

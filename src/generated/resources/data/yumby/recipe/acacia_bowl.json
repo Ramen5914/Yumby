@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "M": "minecraft:acacia_slab"
+    "M": {
+      "item": "minecraft:acacia_slab"
+    }
   },
   "pattern": [
     "M M",

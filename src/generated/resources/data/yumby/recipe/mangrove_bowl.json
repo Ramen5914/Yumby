@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "M": "minecraft:mangrove_slab"
+    "M": {
+      "item": "minecraft:mangrove_slab"
+    }
   },
   "pattern": [
     "M M",

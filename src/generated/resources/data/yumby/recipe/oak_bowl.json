@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "M": "minecraft:oak_slab"
+    "M": {
+      "item": "minecraft:oak_slab"
+    }
   },
   "pattern": [
     "M M",
