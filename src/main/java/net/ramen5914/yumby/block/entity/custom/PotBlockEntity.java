@@ -7,7 +7,6 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.entity.player.Player;
@@ -192,14 +191,8 @@ public class PotBlockEntity extends BlockEntity implements Container {
     }
 
     private Optional<RecipeHolder<BoilingRecipe>> getCurrentRecipe() {
-        if (!level.isClientSide() && level instanceof ServerLevel serverLevel) {
-            return serverLevel.recipeAccess().getRecipeFor(
-                    ModRecipes.BOILING_TYPE.get(),
-                    new BoilingRecipeInput(inventory.getFirst()),
-                    serverLevel);
-        } else {
-            return Optional.empty();
-        }
+        return this.level.getRecipeManager()
+                .getRecipeFor(ModRecipes.BOILING_TYPE.get(), new BoilingRecipeInput(inventory.getFirst()), level);
     }
 
     private boolean canInsertItemIntoOutputSlot(ItemStack output) {
