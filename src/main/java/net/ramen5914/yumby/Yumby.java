@@ -1,6 +1,8 @@
 package net.ramen5914.yumby;
 
 import com.mojang.logging.LogUtils;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -11,6 +13,7 @@ import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
@@ -18,6 +21,9 @@ import net.ramen5914.yumby.block.ModBlocks;
 import net.ramen5914.yumby.block.entity.ModBlockEntities;
 import net.ramen5914.yumby.block.entity.renderer.CuttingBoardBlockEntityRenderer;
 import net.ramen5914.yumby.block.entity.renderer.PotBlockEntityRenderer;
+import net.ramen5914.yumby.fluid.BaseFluidType;
+import net.ramen5914.yumby.fluid.ModFluidTypes;
+import net.ramen5914.yumby.fluid.ModFluids;
 import net.ramen5914.yumby.item.ModItems;
 import net.ramen5914.yumby.recipe.ModRecipes;
 import org.slf4j.Logger;
@@ -36,6 +42,9 @@ public class Yumby {
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
         ModBlockEntities.register(modEventBus);
+
+        ModFluidTypes.register(modEventBus);
+        ModFluids.register(modEventBus);
 
         ModRecipes.register(modEventBus);
 
@@ -58,7 +67,18 @@ public class Yumby {
     @EventBusSubscriber(modid = MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
         @SubscribeEvent
-        public static void onClientSetup(FMLClientSetupEvent event) { }
+        public static void onClientSetup(FMLClientSetupEvent event) {
+            event.enqueueWork(() -> {
+                ItemBlockRenderTypes.setRenderLayer(ModFluids.SOURCE_BEEF_BONE_BROTH.get(), RenderType.TRANSLUCENT);
+                ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_BEEF_BONE_BROTH.get(), RenderType.TRANSLUCENT);
+            });
+        }
+
+        @SubscribeEvent
+        public static void onClientExtensions(RegisterClientExtensionsEvent event) {
+            event.registerFluidType(((BaseFluidType) ModFluidTypes.BEEF_BONE_BROTH_FLUID_TYPE.get()).getClientFluidTypeExtensions(),
+                    ModFluidTypes.BEEF_BONE_BROTH_FLUID_TYPE.get());
+        }
 
         @SubscribeEvent
         public static void registerBlockEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
