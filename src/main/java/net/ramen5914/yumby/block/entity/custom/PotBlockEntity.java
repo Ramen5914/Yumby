@@ -23,6 +23,7 @@ import net.ramen5914.yumby.recipe.boiling.BoilingRecipe;
 import net.ramen5914.yumby.recipe.boiling.BoilingRecipeInput;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.Optional;
 
 public class PotBlockEntity extends BlockEntity implements Container {
@@ -192,7 +193,7 @@ public class PotBlockEntity extends BlockEntity implements Container {
 
     private Optional<RecipeHolder<BoilingRecipe>> getCurrentRecipe() {
         return this.level.getRecipeManager()
-                .getRecipeFor(ModRecipes.BOILING.get(), new BoilingRecipeInput(inventory.getFirst()), level);
+                .getRecipeFor(ModRecipes.BOILING.get(), new BoilingRecipeInput(List.of(inventory.getFirst())), level);
     }
 
     private boolean canInsertItemIntoOutputSlot(ItemStack output) {
