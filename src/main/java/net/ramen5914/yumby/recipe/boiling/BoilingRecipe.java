@@ -12,6 +12,7 @@ import net.ramen5914.yumby.recipe.ModRecipeSerializers;
 import net.ramen5914.yumby.recipe.ModRecipes;
 
 public class BoilingRecipe implements Recipe<BoilingRecipeInput> {
+    public static final int MAX_INGREDIENTS = 15;
 
     private final NonNullList<Ingredient> ingredients;
     private final ItemStack result;

@@ -22,6 +22,7 @@ public class BoilingRecipeSerializer implements RecipeSerializer<BoilingRecipe> 
                                 if (aIngredient.length == 0) {
                                     return DataResult.error(() -> "No ingredients for boiling recipe");
                                 } else {
+                                    return aIngredient.length > BoilingRecipe.MAX_INGREDIENTS
                                             ? DataResult.error(() -> "Too many ingredients for boiling recipe. The maximus is: %s".formatted(BoilingRecipe.MAX_INGREDIENTS))
                                             : DataResult.success(NonNullList.of(Ingredient.EMPTY, aIngredient));
                                 }

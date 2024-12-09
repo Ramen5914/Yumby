@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class PotBlockEntity extends BlockEntity implements Container {
-    private final NonNullList<ItemStack> inventory = NonNullList.withSize(15, ItemStack.EMPTY);
+    private final NonNullList<ItemStack> inventory = NonNullList.withSize(BoilingRecipe.MAX_INGREDIENTS, ItemStack.EMPTY);
     private float rotation;
 
     private final ContainerData data;
