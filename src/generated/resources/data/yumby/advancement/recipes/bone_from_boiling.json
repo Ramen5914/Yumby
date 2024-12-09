@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "yumby:bone"
+        "recipe": "yumby:bone_from_boiling"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "yumby:bone"
+      "yumby:bone_from_boiling"
     ]
   }
 }
