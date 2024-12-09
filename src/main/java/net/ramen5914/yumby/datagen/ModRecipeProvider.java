@@ -89,7 +89,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_stripped_bamboo_block", has(Blocks.BAMBOO_SLAB))
                 .save(output);
 
-        new BoilingRecipeBuilder(new ItemStack(Items.BONE), Ingredient.of(ModItems.BEEF_BONE))
+        boiling(new ItemStack(Items.BONE), Ingredient.of(ModItems.BEEF_BONE))
                 .unlockedBy("has_beef_bone", has(ModItems.BEEF_BONE))
                 .group("misc")
                 .save(output, ResourceLocation.fromNamespaceAndPath(Yumby.MOD_ID, "bone"));
@@ -100,5 +100,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("M M")
                 .pattern("MMM")
                 .define('M', input);
+    }
+
+    private BoilingRecipeBuilder boiling(ItemStack result, Ingredient input) {
+        return new BoilingRecipeBuilder(result, input);
     }
 }

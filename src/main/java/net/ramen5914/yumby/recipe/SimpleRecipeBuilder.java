@@ -20,16 +20,14 @@ public abstract class SimpleRecipeBuilder implements RecipeBuilder {
     }
 
     @Override
-    public RecipeBuilder unlockedBy(String name, Criterion<?> criterion) {
+    public SimpleRecipeBuilder unlockedBy(String name, Criterion<?> criterion) {
         this.criteria.put(name, criterion);
-
         return this;
     }
 
     @Override
-    public RecipeBuilder group(@Nullable String group) {
+    public SimpleRecipeBuilder group(@Nullable String group) {
         this.group = group;
-
         return this;
     }
 

@@ -159,7 +159,7 @@ public class PotBlockEntity extends BlockEntity implements Container {
 
     private void craftItem() {
         Optional<RecipeHolder<BoilingRecipe>> recipe = getCurrentRecipe();
-        ItemStack output = recipe.get().value().output();
+        ItemStack output = recipe.get().value().getResult();
 
         inventory.getFirst().shrink(1);
 
@@ -185,14 +185,14 @@ public class PotBlockEntity extends BlockEntity implements Container {
             return false;
         }
 
-        ItemStack output = recipe.get().value().output();
+        ItemStack output = recipe.get().value().getResult();
 
         return canInsertAmountIntoOutputSlot(output.getCount()) && canInsertItemIntoOutputSlot(output);
     }
 
     private Optional<RecipeHolder<BoilingRecipe>> getCurrentRecipe() {
         return this.level.getRecipeManager()
-                .getRecipeFor(ModRecipes.BOILING_TYPE.get(), new BoilingRecipeInput(inventory.getFirst()), level);
+                .getRecipeFor(ModRecipes.BOILING.get(), new BoilingRecipeInput(inventory.getFirst()), level);
     }
 
     private boolean canInsertItemIntoOutputSlot(ItemStack output) {

@@ -25,6 +25,7 @@ import net.ramen5914.yumby.fluid.BaseFluidType;
 import net.ramen5914.yumby.fluid.ModFluidTypes;
 import net.ramen5914.yumby.fluid.ModFluids;
 import net.ramen5914.yumby.item.ModItems;
+import net.ramen5914.yumby.recipe.ModRecipeSerializers;
 import net.ramen5914.yumby.recipe.ModRecipes;
 import org.slf4j.Logger;
 
@@ -47,6 +48,7 @@ public class Yumby {
         ModFluids.register(modEventBus);
 
         ModRecipes.register(modEventBus);
+        ModRecipeSerializers.register(modEventBus);
 
         NeoForge.EVENT_BUS.register(this);
 

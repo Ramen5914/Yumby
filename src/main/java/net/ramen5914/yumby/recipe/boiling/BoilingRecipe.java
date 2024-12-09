@@ -1,80 +1,67 @@
 package net.ramen5914.yumby.recipe.boiling;
 
-import com.mojang.serialization.MapCodec;
-import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
-import net.minecraft.network.RegistryFriendlyByteBuf;
-import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
+import net.ramen5914.yumby.recipe.ModRecipeSerializers;
 import net.ramen5914.yumby.recipe.ModRecipes;
 
-public record BoilingRecipe(Ingredient inputItem, ItemStack output) implements Recipe<BoilingRecipeInput> {
+public class BoilingRecipe implements Recipe<BoilingRecipeInput> {
+    private final Ingredient inputItem;
+    private final ItemStack result;
+
+    public BoilingRecipe(Ingredient inputItem, ItemStack result) {
+        this.inputItem = inputItem;
+        this.result = result;
+    }
+
     @Override
     public NonNullList<Ingredient> getIngredients() {
         NonNullList<Ingredient> list = NonNullList.create();
-        list.add(inputItem);
+        list.add(this.inputItem);
         return list;
     }
 
-    @Override
-    public boolean matches(BoilingRecipeInput pInput, Level pLevel) {
-        if(pLevel.isClientSide()) {
-            return false;
-        }
+    public Ingredient getInputItem() {
+        return this.inputItem;
+    }
 
-        return inputItem.test(pInput.getItem(0));
+    public ItemStack getResult() {
+        return this.result;
     }
 
     @Override
-    public ItemStack assemble(BoilingRecipeInput pInput, HolderLookup.Provider pRegistries) {
-        return output.copy();
+    public boolean canCraftInDimensions(int width, int height) {
+        return width * height >= 1;
     }
 
     @Override
-    public boolean canCraftInDimensions(int pWidth, int pHeight) {
-        return true;
+    public boolean matches(BoilingRecipeInput input, Level level) {
+        return this.inputItem.test(input.stack());
     }
 
     @Override
-    public ItemStack getResultItem(HolderLookup.Provider pRegistries) {
-        return output;
+    public ItemStack getResultItem(HolderLookup.Provider registries) {
+        return this.result;
     }
 
     @Override
-    public RecipeSerializer<?> getSerializer() {
-        return ModRecipes.BOILING_SERIALIZER.get();
+    public ItemStack assemble(BoilingRecipeInput boilingRecipeInput, HolderLookup.Provider provider) {
+        return this.result.copy();
     }
 
     @Override
     public RecipeType<?> getType() {
-        return ModRecipes.BOILING_TYPE.get();
+        return ModRecipes.BOILING.get();
     }
 
-    public static class Serializer implements RecipeSerializer<BoilingRecipe> {
-        public static final MapCodec<BoilingRecipe> CODEC = RecordCodecBuilder.mapCodec(inst -> inst.group(
-                Ingredient.CODEC_NONEMPTY.fieldOf("ingredient").forGetter(BoilingRecipe::inputItem),
-                ItemStack.CODEC.fieldOf("result").forGetter(BoilingRecipe::output)
-        ).apply(inst, BoilingRecipe::new));
-        public static final StreamCodec<RegistryFriendlyByteBuf, BoilingRecipe> STREAM_CODEC =
-                StreamCodec.composite(
-                        Ingredient.CONTENTS_STREAM_CODEC, BoilingRecipe::inputItem,
-                        ItemStack.STREAM_CODEC, BoilingRecipe::output,
-                        BoilingRecipe::new);
-
-        @Override
-        public MapCodec<BoilingRecipe> codec() {
-            return CODEC;
-        }
-
-        @Override
-        public StreamCodec<RegistryFriendlyByteBuf, BoilingRecipe> streamCodec() {
-            return STREAM_CODEC;
-        }
+    @Override
+    public RecipeSerializer<?> getSerializer() {
+        return ModRecipeSerializers.BOILING.get();
     }
 }
