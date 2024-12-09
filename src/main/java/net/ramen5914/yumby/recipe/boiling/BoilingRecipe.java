@@ -12,23 +12,21 @@ import net.ramen5914.yumby.recipe.ModRecipeSerializers;
 import net.ramen5914.yumby.recipe.ModRecipes;
 
 public class BoilingRecipe implements Recipe<BoilingRecipeInput> {
-    private final Ingredient inputItem;
-    private final ItemStack result;
 
-    public BoilingRecipe(Ingredient inputItem, ItemStack result) {
-        this.inputItem = inputItem;
+    private final NonNullList<Ingredient> ingredients;
+    private final ItemStack result;
+    private final boolean isSimple;
+
+    public BoilingRecipe(ItemStack result, NonNullList<Ingredient> ingredients) {
         this.result = result;
+        this.ingredients = ingredients;
+
+        this.isSimple = ingredients.stream().allMatch(Ingredient::isSimple);
     }
 
     @Override
     public NonNullList<Ingredient> getIngredients() {
-        NonNullList<Ingredient> list = NonNullList.create();
-        list.add(this.inputItem);
-        return list;
-    }
-
-    public Ingredient getInputItem() {
-        return this.inputItem;
+        return this.ingredients;
     }
 
     public ItemStack getResult() {
@@ -42,7 +40,19 @@ public class BoilingRecipe implements Recipe<BoilingRecipeInput> {
 
     @Override
     public boolean matches(BoilingRecipeInput input, Level level) {
-        return this.inputItem.test(input.stack());
+        if (input.ingredientCount() != this.ingredients.size()) {
+            return false;
+        } else if (!isSimple) {
+            var nonEmptyItems = new java.util.ArrayList<ItemStack>(input.ingredientCount());
+            for (var item : input.items())
+                if (!item.isEmpty())
+                    nonEmptyItems.add(item);
+            return net.neoforged.neoforge.common.util.RecipeMatcher.findMatches(nonEmptyItems, this.ingredients) != null;
+        } else {
+            return input.size() == 1 && this.ingredients.size() == 1
+                    ? this.ingredients.getFirst().test(input.getItem(0))
+                    : input.stackedContents().canCraft(this, null);
+        }
     }
 
     @Override
