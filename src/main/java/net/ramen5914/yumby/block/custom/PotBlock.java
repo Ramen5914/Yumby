@@ -26,6 +26,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.neoforged.neoforge.capabilities.Capabilities;
 import net.ramen5914.yumby.block.entity.ModBlockEntities;
 import net.ramen5914.yumby.block.entity.custom.PotBlockEntity;
 import org.jetbrains.annotations.Nullable;
@@ -80,17 +81,23 @@ public class PotBlock extends BaseEntityBlock {
     @Override
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
         if (level.getBlockEntity(pos) instanceof PotBlockEntity potBlockEntity) {
-            if (potBlockEntity.isEmpty() && !stack.isEmpty()) {
-                potBlockEntity.setItem(0, stack);
-                stack.shrink(1);
+            var object = stack.getCapability(Capabilities.FluidHandler.ITEM);
 
-                level.playSound(player, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1f, 2f);
-            } else if (!potBlockEntity.isEmpty() && stack.isEmpty()) {
-                ItemStack stackInPot = potBlockEntity.getItem(0);
-                player.setItemInHand(InteractionHand.MAIN_HAND, stackInPot);
-                potBlockEntity.clearContent();
+            if (object != null) {
+                // TODO Handling objects that have fluid here.
+            } else {
+                if (potBlockEntity.isEmpty() && !stack.isEmpty()) {
+                    potBlockEntity.setItem(0, stack);
+                    stack.shrink(1);
 
-                level.playSound(player, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1f, 1f);
+                    level.playSound(player, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1f, 2f);
+                } else if (!potBlockEntity.isEmpty() && stack.isEmpty()) {
+                    ItemStack stackInPot = potBlockEntity.getItem(0);
+                    player.setItemInHand(InteractionHand.MAIN_HAND, stackInPot);
+                    potBlockEntity.clearContent();
+
+                    level.playSound(player, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1f, 1f);
+                }
             }
         }
 
