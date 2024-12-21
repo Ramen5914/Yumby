@@ -10,6 +10,7 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.ramen5914.yumby.Yumby;
 import net.ramen5914.yumby.block.ModBlocks;
 import net.ramen5914.yumby.fluid.ModFluids;
+import net.ramen5914.yumby.item.ModItems;
 
 public class ModItemModelProvider extends ItemModelProvider {
     public ModItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
@@ -22,6 +23,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         complexBlock(ModBlocks.POT.get());
 
         basicItem(ModFluids.BEEF_BONE_BROTH_BUCKET.get());
+        basicItem(ModItems.TOMATO.get());
+        basicItem(ModItems.TOMATO_SEEDS.get());
     }
 
     private ItemModelBuilder complexBlock(Block block) {

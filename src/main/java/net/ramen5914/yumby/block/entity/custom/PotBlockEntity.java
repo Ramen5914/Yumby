@@ -43,7 +43,7 @@ public class PotBlockEntity extends BlockEntity implements Container {
     private int maxProgress = 72;
     private final int DEFAULT_MAX_PROGRESS = 72;
 
-    private final FluidTank FLUID_TANK = createFluidTank();
+    public final FluidTank FLUID_TANK = createFluidTank();
     public static final BlockCapability<IFluidHandler, Void> FLUID_HANDLER =
             BlockCapability.createVoid(
                     ResourceLocation.fromNamespaceAndPath(Yumby.MOD_ID, "pot_fluid_handler"),
@@ -253,10 +253,5 @@ public class PotBlockEntity extends BlockEntity implements Container {
         }
 
         return rotation;
-    }
-
-    @Override
-    public void onLoad() {
-
     }
 }

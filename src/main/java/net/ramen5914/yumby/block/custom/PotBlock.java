@@ -27,6 +27,9 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.neoforge.capabilities.Capabilities;
+import net.neoforged.neoforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.capability.IFluidHandler;
+import net.ramen5914.yumby.Yumby;
 import net.ramen5914.yumby.block.entity.ModBlockEntities;
 import net.ramen5914.yumby.block.entity.custom.PotBlockEntity;
 import org.jetbrains.annotations.Nullable;
@@ -84,6 +87,12 @@ public class PotBlock extends BaseEntityBlock {
             var object = stack.getCapability(Capabilities.FluidHandler.ITEM);
 
             if (object != null) {
+                Yumby.LOGGER.info("Tanks: {}", object.getTanks());
+                FluidStack fluid =  object.getFluidInTank(1);
+
+                int removedAmount = potBlockEntity.FLUID_TANK.fill(fluid, IFluidHandler.FluidAction.EXECUTE);
+
+                object.drain(removedAmount, IFluidHandler.FluidAction.EXECUTE);
                 // TODO Handling objects that have fluid here.
             } else {
                 if (potBlockEntity.isEmpty() && !stack.isEmpty()) {

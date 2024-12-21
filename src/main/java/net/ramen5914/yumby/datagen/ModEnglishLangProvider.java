@@ -38,6 +38,14 @@ public class ModEnglishLangProvider extends LanguageProvider {
         // Jade
         add("config.jade.plugin_yumby.jadetest", "what am i supposed to put here");
 
-        add(String.format("itemgroup.%s.yumby_tab", Yumby.MOD_ID), "Yumby");
+        // Creative Mode Tabs
+        add(String.format("itemgroup.%s.yumby_cookware_tab", Yumby.MOD_ID), "Yumby Cookware");
+        add(String.format("itemgroup.%s.yumby_food_tab", Yumby.MOD_ID), "Yumby Foods");
+        add(String.format("itemgroup.%s.yumby_seed_tab", Yumby.MOD_ID), "Yumby Seeds");
+
+        /* Crops */
+        // Tomato
+        addItem(ModItems.TOMATO_SEEDS, "Tomato Seeds");
+        addBlock(ModBlocks.TOMATO_CROP, "Tomato Crop");
     }
 }

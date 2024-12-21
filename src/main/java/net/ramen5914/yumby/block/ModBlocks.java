@@ -3,15 +3,13 @@ package net.ramen5914.yumby.block;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.ramen5914.yumby.Yumby;
-import net.ramen5914.yumby.block.custom.BowlBlock;
-import net.ramen5914.yumby.block.custom.CuttingBoardBlock;
-import net.ramen5914.yumby.block.custom.PanBlock;
-import net.ramen5914.yumby.block.custom.PotBlock;
+import net.ramen5914.yumby.block.custom.*;
 import net.ramen5914.yumby.item.ModItems;
 
 import java.util.function.Supplier;
@@ -119,9 +117,8 @@ public class ModBlocks {
             () -> new CuttingBoardBlock(BlockBehaviour.Properties.of()
                     .noOcclusion()));
             
-//    public static DeferredBlock<Block> ONION_CROP = registerBlock("onion_crop",
-//            (properties) -> new OnionCropBlock(properties),
-//            (properties) -> properties);
+    public static final DeferredBlock<Block> TOMATO_CROP = BLOCKS.register("tomato_crop",
+            () -> new TomatoCropBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHEAT)));
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block, Item.Properties itemProperties) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);

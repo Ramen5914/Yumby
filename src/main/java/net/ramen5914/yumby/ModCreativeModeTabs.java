@@ -53,10 +53,20 @@ public class ModCreativeModeTabs {
             CREATIVE_MODE_TABS.register("yumby_food_tab", () -> CreativeModeTab.builder()
                     .title(Component.translatable(String.format("itemgroup.%s.yumby_food_tab", Yumby.MOD_ID)))
                     .icon(() -> new ItemStack(ModItems.BEEF_BONE.get()))
-                    .displayItems((itemDisplayParameters, output) -> {
+                    .displayItems((parameters, output) -> {
                         output.accept(ModItems.BEEF_BONE);
                         output.accept(ModItems.CHICKEN_BONE);
                         output.accept(ModItems.PORK_BONE);
+                        output.accept(ModItems.TOMATO);
+                    })
+                    .build());
+
+    public static final Supplier<CreativeModeTab> YUMBY_SEED_TAB =
+            CREATIVE_MODE_TABS.register("yumby_seed_tab", () -> CreativeModeTab.builder()
+                    .title(Component.translatable(String.format("itemgroup.%s.yumby_seed_tab", Yumby.MOD_ID)))
+                    .icon(() -> new ItemStack(ModItems.TOMATO_SEEDS.get()))
+                    .displayItems((parameters, output) -> {
+                        output.accept(ModItems.TOMATO_SEEDS.get());
                     })
                     .build());
 
