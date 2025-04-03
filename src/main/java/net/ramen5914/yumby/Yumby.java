@@ -13,6 +13,7 @@ import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
@@ -27,6 +28,8 @@ import net.ramen5914.yumby.fluid.ModFluids;
 import net.ramen5914.yumby.item.ModItems;
 import net.ramen5914.yumby.recipe.ModRecipeSerializers;
 import net.ramen5914.yumby.recipe.ModRecipes;
+import net.ramen5914.yumby.screen.ModMenuTypes;
+import net.ramen5914.yumby.screen.custom.TankScreen;
 import org.slf4j.Logger;
 
 @Mod(Yumby.MOD_ID)
@@ -46,6 +49,8 @@ public class Yumby {
 
         ModFluidTypes.register(modEventBus);
         ModFluids.register(modEventBus);
+
+        ModMenuTypes.register(modEventBus);
 
         ModRecipes.register(modEventBus);
         ModRecipeSerializers.register(modEventBus);
@@ -86,6 +91,11 @@ public class Yumby {
         public static void registerBlockEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
             event.registerBlockEntityRenderer(ModBlockEntities.POT_BE.get(), PotBlockEntityRenderer::new);
             event.registerBlockEntityRenderer(ModBlockEntities.CUTTING_BOARD_BE.get(), CuttingBoardBlockEntityRenderer::new);
+        }
+
+        @SubscribeEvent
+        public static void registerScreens(RegisterMenuScreensEvent event) {
+            event.register(ModMenuTypes.TANK_MENU.get(), TankScreen::new);
         }
     }
 }
