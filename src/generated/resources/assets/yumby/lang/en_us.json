@@ -11,6 +11,7 @@
   "block.yumby.pan": "Pan",
   "block.yumby.pot": "Pot",
   "block.yumby.spruce_bowl": "Spruce Bowl",
+  "block.yumby.tank": "Tank",
   "block.yumby.tomato_crop": "Tomato Crop",
   "block.yumby.warped_bowl": "Warped Bowl",
   "config.jade.plugin_yumby.jadetest": "what am i supposed to put here",
@@ -20,5 +21,8 @@
   "item.yumby.tomato_seeds": "Tomato Seeds",
   "itemgroup.yumby.yumby_cookware_tab": "Yumby Cookware",
   "itemgroup.yumby.yumby_food_tab": "Yumby Foods",
-  "itemgroup.yumby.yumby_seed_tab": "Yumby Seeds"
+  "itemgroup.yumby.yumby_seed_tab": "Yumby Seeds",
+  "itemgroup.yumby.yumby_testing_tab": "Yumby Testing",
+  "yumby.tooltip.liquid.amount": "%s mB",
+  "yumby.tooltip.liquid.amount.with.capacity": "%s / %s mB"
 }
