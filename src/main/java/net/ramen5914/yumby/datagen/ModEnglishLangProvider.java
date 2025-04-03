@@ -47,5 +47,12 @@ public class ModEnglishLangProvider extends LanguageProvider {
         // Tomato
         addItem(ModItems.TOMATO_SEEDS, "Tomato Seeds");
         addBlock(ModBlocks.TOMATO_CROP, "Tomato Crop");
+
+        /* Testing */
+        addBlock(ModBlocks.TANK, "Tank");
+        add(String.format("itemgroup.%s.yumby_testing_tab", Yumby.MOD_ID), "Yumby Testing");
+
+        add("yumby.tooltip.liquid.amount.with.capacity", "%s / %s mB");
+        add("yumby.tooltip.liquid.amount", "%s mB");
     }
 }
