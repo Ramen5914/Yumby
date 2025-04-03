@@ -2,12 +2,14 @@ package net.ramen5914.yumby.datagen;
 
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.registries.DeferredBlock;
 import net.ramen5914.yumby.Yumby;
 import net.ramen5914.yumby.block.ModBlocks;
 import net.ramen5914.yumby.block.custom.TomatoCropBlock;
@@ -64,6 +66,14 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 new ModelFile.UncheckedModelFile(modLoc("block/bamboo_bowl")));
 
         makeCrop(((TomatoCropBlock) ModBlocks.TOMATO_CROP.get()), "tomato_crop_stage", "tomato_crop_stage");
+
+        /* Testing */
+        blockWithItemWithRenderType(ModBlocks.TANK, "translucent");
+    }
+
+    public void blockWithItemWithRenderType(DeferredBlock<Block> deferredBlock, String renderType) {
+        simpleBlockWithItem(deferredBlock.get(), models().cubeAll(deferredBlock.getId().getPath(),
+                modLoc("block/" + deferredBlock.getId().getPath())).renderType(renderType));
     }
 
     public void makeCrop(CropBlock block, String modelName, String textureName) {
