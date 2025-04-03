@@ -3,7 +3,7 @@ plugins {
     id 'java-library'
     id 'maven-publish'
     // https://projects.neoforged.net/neoforged/moddevgradle
-    id 'net.neoforged.moddev' version '2.0.61-beta'
+    id 'net.neoforged.moddev' version '2.0.80'
 }
 
 tasks.named('wrapper', Wrapper).configure {
