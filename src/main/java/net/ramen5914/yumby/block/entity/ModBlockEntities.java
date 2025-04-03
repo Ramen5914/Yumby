@@ -8,6 +8,7 @@ import net.ramen5914.yumby.Yumby;
 import net.ramen5914.yumby.block.ModBlocks;
 import net.ramen5914.yumby.block.entity.custom.CuttingBoardBlockEntity;
 import net.ramen5914.yumby.block.entity.custom.PotBlockEntity;
+import net.ramen5914.yumby.block.entity.custom.TankBlockEntity;
 
 import java.util.function.Supplier;
 
@@ -18,6 +19,10 @@ public class ModBlockEntities {
     public static final Supplier<BlockEntityType<PotBlockEntity>> POT_BE =
             BLOCK_ENTITIES.register("pot_be", () -> BlockEntityType.Builder.of(
                     PotBlockEntity::new, ModBlocks.POT.get()).build(null));
+
+    public static final Supplier<BlockEntityType<TankBlockEntity>> TANK_BE =
+            BLOCK_ENTITIES.register("tank_be", () -> BlockEntityType.Builder.of(
+                    TankBlockEntity::new, ModBlocks.TANK.get()).build(null));
 
     public static final Supplier<BlockEntityType<CuttingBoardBlockEntity>> CUTTING_BOARD_BE =
             BLOCK_ENTITIES.register("cutting_board_be", () -> BlockEntityType.Builder.of(
