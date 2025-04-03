@@ -70,6 +70,15 @@ public class ModCreativeModeTabs {
                     })
                     .build());
 
+    public static final Supplier<CreativeModeTab> YUMBY_TESTING_TAB =
+            CREATIVE_MODE_TABS.register("yumby_testing_tab", () -> CreativeModeTab.builder()
+                    .title(Component.translatable(String.format("itemgroup.%s.yumby_testing_tab", Yumby.MOD_ID)))
+                    .icon(() -> new ItemStack(ModBlocks.TANK.get()))
+                    .displayItems((parameters, output) -> {
+                        output.accept(ModBlocks.TANK.get());
+                    })
+                    .build());
+
     public static void register(IEventBus eventBus) {
         CREATIVE_MODE_TABS.register(eventBus);
     }
