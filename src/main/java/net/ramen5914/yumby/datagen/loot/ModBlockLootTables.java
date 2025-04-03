@@ -52,6 +52,9 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         dropSelf(ModBlocks.BAMBOO_CUTTING_BOARD.get());
 
         crop(ModBlocks.TOMATO_CROP.get(), ModItems.TOMATO.get(), ModItems.TOMATO_SEEDS.get(), TomatoCropBlock.class);
+
+        /* Testing */
+        dropSelf(ModBlocks.TANK.get());
     }
 
     @Override
