@@ -8,6 +8,7 @@ import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
+import net.neoforged.neoforge.fluids.FluidStack;
 import net.ramen5914.yumby.recipe.ModRecipeSerializers;
 import net.ramen5914.yumby.recipe.ModRecipes;
 
@@ -15,12 +16,14 @@ public class BoilingRecipe implements Recipe<BoilingRecipeInput> {
     public static final int MAX_INGREDIENTS = 15;
 
     private final NonNullList<Ingredient> ingredients;
+    private final FluidStack fluid;
     private final ItemStack result;
     private final boolean isSimple;
 
-    public BoilingRecipe(ItemStack result, NonNullList<Ingredient> ingredients) {
+    public BoilingRecipe(ItemStack result, NonNullList<Ingredient> ingredients, FluidStack fluid) {
         this.result = result;
         this.ingredients = ingredients;
+        this.fluid = fluid;
 
         this.isSimple = ingredients.stream().allMatch(Ingredient::isSimple);
     }
@@ -28,6 +31,10 @@ public class BoilingRecipe implements Recipe<BoilingRecipeInput> {
     @Override
     public NonNullList<Ingredient> getIngredients() {
         return this.ingredients;
+    }
+
+    public FluidStack getFluid() {
+        return this.fluid;
     }
 
     public ItemStack getResult() {
