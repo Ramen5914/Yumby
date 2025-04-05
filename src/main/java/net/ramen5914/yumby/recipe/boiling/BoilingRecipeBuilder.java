@@ -12,14 +12,18 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
+import net.neoforged.neoforge.fluids.FluidStack;
 import net.ramen5914.yumby.Yumby;
 import net.ramen5914.yumby.recipe.SimpleRecipeBuilder;
 
 public class BoilingRecipeBuilder extends SimpleRecipeBuilder {
     private final NonNullList<Ingredient> ingredients = NonNullList.create();
+    private final FluidStack fluid;
 
-    public BoilingRecipeBuilder(ItemStack result) {
+    public BoilingRecipeBuilder(ItemStack result, FluidStack fluid) {
         super(result);
+
+        this.fluid = fluid;
     }
 
     /**
@@ -93,7 +97,8 @@ public class BoilingRecipeBuilder extends SimpleRecipeBuilder {
         this.criteria.forEach(advancement::addCriterion);
         BoilingRecipe recipe = new BoilingRecipe(
                 this.result,
-                this.ingredients
+                this.ingredients,
+                this.fluid
         );
         output.accept(id, recipe, advancement.build(id.withPrefix("recipes/")));
     }
