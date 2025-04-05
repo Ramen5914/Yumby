@@ -11,7 +11,9 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
+import net.neoforged.neoforge.fluids.FluidStack;
 import net.ramen5914.yumby.block.ModBlocks;
+import net.ramen5914.yumby.fluid.ModFluids;
 import net.ramen5914.yumby.item.ModItems;
 import net.ramen5914.yumby.recipe.boiling.BoilingRecipeBuilder;
 
@@ -86,7 +88,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_stripped_bamboo_block", has(Blocks.BAMBOO_SLAB))
                 .save(output);
 
-        boiling(new ItemStack(Items.BONE))
+        boiling(new ItemStack(Items.BONE), new FluidStack(ModFluids.SOURCE_BEEF_BONE_BROTH.get(), 1000))
                 .requires(ModItems.BEEF_BONE)
                 .unlockedBy("has_beef_bone", has(ModItems.BEEF_BONE))
                 .group("misc")
@@ -100,7 +102,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('M', input);
     }
 
-    private BoilingRecipeBuilder boiling(ItemStack result) {
-        return new BoilingRecipeBuilder(result);
+    private BoilingRecipeBuilder boiling(ItemStack result, FluidStack fluid) {
+        return new BoilingRecipeBuilder(result, fluid);
     }
 }
