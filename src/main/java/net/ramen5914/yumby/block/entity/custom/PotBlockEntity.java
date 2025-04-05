@@ -7,7 +7,6 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.entity.player.Player;
@@ -18,13 +17,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Fluids;
-import net.neoforged.neoforge.capabilities.BlockCapability;
 import net.neoforged.neoforge.fluids.FluidStack;
-import net.neoforged.neoforge.fluids.FluidType;
-import net.neoforged.neoforge.fluids.capability.IFluidHandler;
 import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
-import net.ramen5914.yumby.Yumby;
 import net.ramen5914.yumby.block.entity.ModBlockEntities;
 import net.ramen5914.yumby.recipe.ModRecipes;
 import net.ramen5914.yumby.recipe.boiling.BoilingRecipe;
@@ -43,15 +37,11 @@ public class PotBlockEntity extends BlockEntity implements Container {
     private int maxProgress = 72;
     private final int DEFAULT_MAX_PROGRESS = 72;
 
-    public final FluidTank FLUID_TANK = createFluidTank();
-    public static final BlockCapability<IFluidHandler, Void> FLUID_HANDLER =
-            BlockCapability.createVoid(
-                    ResourceLocation.fromNamespaceAndPath(Yumby.MOD_ID, "pot_fluid_handler"),
-                    IFluidHandler.class
-            );
+    private static final int FLUID_CRAFT_AMOUNT = 1000;
 
+    public final FluidTank FLUID_TANK = createFluidTank();
     private FluidTank createFluidTank() {
-        return new FluidTank(FluidType.BUCKET_VOLUME) {
+        return new FluidTank(1000) {
             @Override
             protected void onContentsChanged() {
                 setChanged();
@@ -62,7 +52,7 @@ public class PotBlockEntity extends BlockEntity implements Container {
 
             @Override
             public boolean isFluidValid(FluidStack stack) {
-                return stack.getFluid() != Fluids.LAVA;
+                return true;
             }
         };
     }
@@ -225,7 +215,7 @@ public class PotBlockEntity extends BlockEntity implements Container {
 
     private Optional<RecipeHolder<BoilingRecipe>> getCurrentRecipe() {
         return this.level.getRecipeManager()
-                .getRecipeFor(ModRecipes.BOILING.get(), new BoilingRecipeInput(List.of(inventory.getFirst())), level);
+                .getRecipeFor(ModRecipes.BOILING.get(), new BoilingRecipeInput(List.of(inventory.getFirst()), FLUID_TANK.getFluid()), level);
     }
 
     private boolean canInsertItemIntoOutputSlot(ItemStack output) {
