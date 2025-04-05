@@ -22,6 +22,7 @@ import net.ramen5914.yumby.block.ModBlocks;
 import net.ramen5914.yumby.block.entity.ModBlockEntities;
 import net.ramen5914.yumby.block.entity.renderer.CuttingBoardBlockEntityRenderer;
 import net.ramen5914.yumby.block.entity.renderer.PotBlockEntityRenderer;
+import net.ramen5914.yumby.block.entity.renderer.TankBlockEntityRenderer;
 import net.ramen5914.yumby.fluid.BaseFluidType;
 import net.ramen5914.yumby.fluid.ModFluidTypes;
 import net.ramen5914.yumby.fluid.ModFluids;
@@ -91,6 +92,7 @@ public class Yumby {
         public static void registerBlockEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
             event.registerBlockEntityRenderer(ModBlockEntities.POT_BE.get(), PotBlockEntityRenderer::new);
             event.registerBlockEntityRenderer(ModBlockEntities.CUTTING_BOARD_BE.get(), CuttingBoardBlockEntityRenderer::new);
+            event.registerBlockEntityRenderer(ModBlockEntities.TANK_BE.get(), TankBlockEntityRenderer::new);
         }
 
         @SubscribeEvent
