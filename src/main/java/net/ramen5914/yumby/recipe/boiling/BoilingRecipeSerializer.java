@@ -9,6 +9,7 @@ import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.neoforged.neoforge.fluids.FluidStack;
 
 public class BoilingRecipeSerializer implements RecipeSerializer<BoilingRecipe> {
     public static final MapCodec<BoilingRecipe> CODEC = RecordCodecBuilder.mapCodec(inst -> inst.group(
@@ -29,7 +30,8 @@ public class BoilingRecipeSerializer implements RecipeSerializer<BoilingRecipe> 
                             },
                             DataResult::success
                     )
-                    .forGetter(BoilingRecipe::getIngredients)
+                    .forGetter(BoilingRecipe::getIngredients),
+            FluidStack.CODEC.fieldOf("fluid").forGetter(BoilingRecipe::getFluid)
     ).apply(inst, BoilingRecipe::new));
 
     public static final StreamCodec<RegistryFriendlyByteBuf, BoilingRecipe> STREAM_CODEC = StreamCodec.of(
@@ -44,6 +46,8 @@ public class BoilingRecipeSerializer implements RecipeSerializer<BoilingRecipe> 
         }
 
         ItemStack.STREAM_CODEC.encode(buffer, recipe.getResult());
+
+        FluidStack.STREAM_CODEC.encode(buffer, recipe.getFluid());
     }
 
     private static BoilingRecipe fromNetwork(RegistryFriendlyByteBuf buffer) {
@@ -51,8 +55,9 @@ public class BoilingRecipeSerializer implements RecipeSerializer<BoilingRecipe> 
         NonNullList<Ingredient> ingredients = NonNullList.withSize(size, Ingredient.EMPTY);
         ingredients.replaceAll(ingredient -> Ingredient.CONTENTS_STREAM_CODEC.decode(buffer));
         ItemStack itemStack = ItemStack.STREAM_CODEC.decode(buffer);
+        FluidStack fluidStack = FluidStack.STREAM_CODEC.decode(buffer);
 
-        return new BoilingRecipe(itemStack, ingredients);
+        return new BoilingRecipe(itemStack, ingredients, fluidStack);
     }
 
     @Override
