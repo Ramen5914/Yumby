@@ -1,5 +1,9 @@
 {
   "type": "yumby:boiling",
+  "fluid": {
+    "amount": 1000,
+    "id": "yumby:source_beef_bone_broth"
+  },
   "ingredients": [
     {
       "item": "yumby:beef_bone"
